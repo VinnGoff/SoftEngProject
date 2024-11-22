@@ -12,5 +12,6 @@ package com.mycompany.rubricagruppo16;
 public class Prova {
     public static void main(){
         System.out.println("Prova vincenzo");
+        System.out.println("prova 16");
     }
 }
