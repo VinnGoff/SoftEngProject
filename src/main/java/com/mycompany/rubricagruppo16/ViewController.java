@@ -41,4 +41,8 @@ public class ViewController implements Initializable{
     public void scarcaSuFile(ActionEvent event){
         
     }
+    
+    public void cancellaRubrica(ActionEvent event){
+        
+    }
 }
