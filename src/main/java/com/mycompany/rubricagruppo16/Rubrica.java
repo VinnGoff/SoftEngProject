@@ -9,40 +9,20 @@ package com.mycompany.rubricagruppo16;
  *
  * @author vgoff
  */
+import java.util.ArrayList;
+
 public class Rubrica {
-   private String Nome;
-   private String Cognome;
-   String[] NumeroTelefonico;
-   String[] IndirizzoEmail;
+   private ArrayList<Contatto>lista;
    
-   public void InserisciNome(String Nome){
-
+   public Rubrica(){
+   this.lista=new ArrayList<>();
 }
-   public void InserisciCognome(String Cognome){
-
+   public void inserisciContatto(Contatto x){
 }
-   public void InserisciNumeroTelefonico(){
-
+   public Contatto ricera(String nome){
 }
-   public void InserisciIndirizzoEmail(){
-
+   public void eliminaContatto(int index){
 }
-   public String ModificaNome(String Nome){
-
+  public void stamparubrica(){
 }
-   public String ModificaCognome(String Cognome){
-
-}
-
-   public String ModificaNumeroTelefonico(){
-
-}
-
-   public String ModificaIndirizzoEmail(){
-}
-  
-
-  
-    
-}
-
+{
