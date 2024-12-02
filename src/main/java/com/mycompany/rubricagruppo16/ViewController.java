@@ -5,10 +5,45 @@
  */
 package com.mycompany.rubricagruppo16;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
 /**
  *
  * @author vgoff
  */
-public class ViewController {
+public class ViewController implements Initializable{
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
+    @FXML
+    public void aggiungiContatto(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void cancellaContatto(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void ricercaContatto(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void caricaDaFile(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void scarcaSuFile(ActionEvent event){
+        
+    }
 }
