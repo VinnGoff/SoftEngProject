@@ -10,5 +10,39 @@ package com.mycompany.rubricagruppo16;
  * @author vgoff
  */
 public class Rubrica {
+   private String Nome;
+   private String Cognome;
+   String[] NumeroTelefonico;
+   String[] IndirizzoEmail;
+   
+   public void InserisciNome(String Nome){
+
+}
+   public void InserisciCognome(String Cognome){
+
+}
+   public void InserisciNumeroTelefonico(){
+
+}
+   public void InserisciIndirizzoEmail(){
+
+}
+   public String ModificaNome(String Nome){
+
+}
+   public String ModificaCognome(String Cognome){
+
+}
+
+   public String ModificaNumeroTelefonico(){
+
+}
+
+   public String ModificaIndirizzoEmail(){
+}
+  
+
+  
     
 }
+
