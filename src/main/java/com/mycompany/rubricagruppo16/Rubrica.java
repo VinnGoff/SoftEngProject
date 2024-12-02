@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class Rubrica {
    private ArrayList<Contatto>lista;
-   
    public Rubrica(){
    this.lista=new ArrayList<>();
 }
