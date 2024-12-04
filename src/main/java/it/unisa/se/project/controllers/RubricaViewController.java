@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author vgoff
  */
-public class ViewController implements Initializable{
+public class RubricaViewController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
