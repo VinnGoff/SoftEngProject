@@ -20,6 +20,7 @@ public class Rubrica {
     
     public void inserisciContatto(Contatto x){
         
+        if(nome=='null' && cognome=='null')throw new NonValidoException("inserire un nome o cognome");
     }
  
     public Contatto ricerca(String nome){
