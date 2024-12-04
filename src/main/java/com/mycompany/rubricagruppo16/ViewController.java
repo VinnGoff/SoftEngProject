@@ -38,7 +38,7 @@ public class ViewController implements Initializable{
         
     }
     
-    public void scarcaSuFile(ActionEvent event){
+    public void caricaSuFile(ActionEvent event){
         
     }
     
