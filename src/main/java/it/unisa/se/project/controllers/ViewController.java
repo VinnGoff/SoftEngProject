@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.rubricagruppo16;
+package it.unisa.se.project.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,6 +43,10 @@ public class ViewController implements Initializable{
     }
     
     public void cancellaRubrica(ActionEvent event){
+        
+    }
+    
+    public void visualizzaContatto(ActionEvent event){
         
     }
 }
