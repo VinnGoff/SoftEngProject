@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nonvalidoexception_0',['NonValidoException',['../classit_1_1unisa_1_1se_1_1project_1_1eccezioni_1_1NonValidoException.html',1,'it::unisa::se::project::eccezioni']]]
+  ['main_0',['Main',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Main.html',1,'it::unisa::se::project::datiAndStrutture']]]
 ];

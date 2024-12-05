@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file AggiungiContattoViewController.java
+ * @brief Controller che gestisce i dati per l'aggiunta di un contatto nella rubrica
+ * 
  */
 package it.unisa.se.project.controllers;
 

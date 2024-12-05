@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file ConfEliminaContattoViewController.java
+ * @brief Controller che gestisce la rimozione di un singolo contatto dalla rubrica
+ * 
  */
 package it.unisa.se.project.controllers;
 
