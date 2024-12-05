@@ -7,6 +7,7 @@ package it.unisa.se.project.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 /**
@@ -24,4 +25,11 @@ public class ConfEliminaContattoViewController implements Initializable {
         // TODO
     }    
     
+    public void confermaEliminCont(ActionEvent e){
+        
+    }
+    
+    public void annullaEliminCont(ActionEvent e){
+        
+    }
 }
