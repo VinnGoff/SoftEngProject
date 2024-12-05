@@ -16,10 +16,12 @@ public class CaricaFile{
      */
     public static void main(String[] args)
     {
+        /*
         BufferedReader reader= new BufferedReader(new InputStreamReader(Paths.get("manca il path del file")));
         String line;
         if((line=reader.readLine)!== null){
             System.out.println(line);
         }
-        // TODO code application logic here
-    }}
+        */
+    }
+}

@@ -28,7 +28,7 @@ public class ConfEliminaContattoViewController implements Initializable {
     public void confermaEliminCont(ActionEvent e){
         
     }
-     
+    
     public void annullaEliminCont(ActionEvent e){
         
     }
