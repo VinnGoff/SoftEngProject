@@ -87,20 +87,18 @@ public class Contatto implements Comparable<Contatto>{
     /**
      * @brief Rimuove un numero di telefono
      * @param numero Numero da rimuovere
-     * @return true se il numero è stato rimosso, false se non esisteva
      */
-    public boolean rimuoviNumeroTel(NumeroTel numero) {
-        return false;
+    public void rimuoviNumeroTel(NumeroTel numero) {
+        
     }
     
     /**
      * @brief Rimuove un indirizzo email
      * @param email Email da rimuovere
-     * @return true se l'email è stata rimossa, false se non esisteva
      */
 
-    public boolean rimuoviEmail(Email email) {
-        return false;
+    public void rimuoviEmail(Email email) {
+        
     }
     
     /**

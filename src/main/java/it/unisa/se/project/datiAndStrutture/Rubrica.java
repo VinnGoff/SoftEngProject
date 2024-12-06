@@ -29,10 +29,9 @@ public class Rubrica {
     /**
      * @brief Rimuove un contatto
      * @param contatto Il contatto da rimuovere
-     * @return true se il contatto è stato rimosso
      */
-    public boolean rimuoviContatto(Contatto contatto) {
-        return false;
+    public void rimuoviContatto(Contatto contatto) {
+
     }
 
     /**
