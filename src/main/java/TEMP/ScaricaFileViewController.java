@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-package it.unisa.se.project.controllers;
+package TEMP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Utente
  */
-public class CaricaFileViewController implements Initializable{
+public class ScaricaFileViewController implements Initializable{
 
     /**
      * Initializes the controller class.
