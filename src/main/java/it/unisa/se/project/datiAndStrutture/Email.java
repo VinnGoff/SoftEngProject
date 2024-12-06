@@ -23,7 +23,7 @@ public class Email {
      * @brief Valida il formato dell'indirizzo
      * @return true se il formato è valido
      */
-    public boolean validate() {
+    public boolean valido() {
         return false;
     }
 
