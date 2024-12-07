@@ -1,9 +1,9 @@
 /**
- * @file ConfEliminaContattoViewController.java
- * @brief Controller che gestisce la rimozione di un singolo contatto dalla rubrica
+ * @file ConfEliminaRubricaViewController.java
+ * @brief Controller che gestisce la rimozione dell'intera rubrica
  * 
  */
-package it.unisa.se.project.controllers;
+package TEMP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author vgoff
  */
-public class ConfEliminaContattoViewController implements Initializable {
+public class ConfEliminaRubricaViewController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -23,13 +23,13 @@ public class ConfEliminaContattoViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-    public void confermaEliminCont(ActionEvent e){
+    }
+
+    public void confermaEliminRubr(ActionEvent e){
         
     }
     
-    public void annullaEliminCont(ActionEvent e){
+    public void annullaEliminRubr(ActionEvent e){
         
     }
 }

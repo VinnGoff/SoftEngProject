@@ -1,9 +1,9 @@
 /**
- * @file CaricaDaFileViewController.java
- * @brief Controller che gestisce l'importazione da file di una rubrica
+ * @file ConfEliminaContattoViewController.java
+ * @brief Controller che gestisce la rimozione di un singolo contatto dalla rubrica
  * 
  */
-package it.unisa.se.project.controllers;
+package TEMP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author vgoff
  */
-public class CaricaDaFileViewController implements Initializable {
+public class ConfEliminaContattoViewController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -23,13 +23,13 @@ public class CaricaDaFileViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    public void caricaDaFile(ActionEvent e){
+    }    
+    
+    public void confermaEliminCont(ActionEvent e){
         
     }
     
-    public void annullaCaricaDaFile(ActionEvent e){
+    public void annullaEliminCont(ActionEvent e){
         
     }
 }

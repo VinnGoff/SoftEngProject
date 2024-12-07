@@ -1,9 +1,9 @@
 /**
- * @file ConfEliminaRubricaViewController.java
- * @brief Controller che gestisce la rimozione dell'intera rubrica
+ * @file ScaricaSuFileViewController.java
+ * @brief Controller che gestisce i dati per scaricare la rubrica su un file
  * 
  */
-package it.unisa.se.project.controllers;
+package TEMP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author vgoff
  */
-public class ConfEliminaRubricaViewController implements Initializable {
+public class ScaricaSuFileViewController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -25,11 +25,11 @@ public class ConfEliminaRubricaViewController implements Initializable {
         // TODO
     }
 
-    public void confermaEliminRubr(ActionEvent e){
+    public void scaricaSuFile(ActionEvent e){
         
     }
     
-    public void annullaEliminRubr(ActionEvent e){
+    public void annullaScaricaSuFile(ActionEvent e){
         
     }
 }

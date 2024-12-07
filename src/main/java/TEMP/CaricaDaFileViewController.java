@@ -1,9 +1,9 @@
 /**
- * @file ScaricaSuFileViewController.java
- * @brief Controller che gestisce i dati per scaricare la rubrica su un file
+ * @file CaricaDaFileViewController.java
+ * @brief Controller che gestisce l'importazione da file di una rubrica
  * 
  */
-package it.unisa.se.project.controllers;
+package TEMP;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author vgoff
  */
-public class ScaricaSuFileViewController implements Initializable {
+public class CaricaDaFileViewController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -25,11 +25,11 @@ public class ScaricaSuFileViewController implements Initializable {
         // TODO
     }
 
-    public void scaricaSuFile(ActionEvent e){
+    public void caricaDaFile(ActionEvent e){
         
     }
     
-    public void annullaScaricaSuFile(ActionEvent e){
+    public void annullaCaricaDaFile(ActionEvent e){
         
     }
 }
