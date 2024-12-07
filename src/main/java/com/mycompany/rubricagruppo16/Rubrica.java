@@ -5,6 +5,9 @@
  */
 package com.mycompany.rubricagruppo16;
 
+import it.unisa.se.project.datiAndStrutture.Contatto;
+import it.unisa.se.project.eccezioni.NonValidoException;
+
 /**
  *
  * @author vgoff
@@ -19,7 +22,8 @@ public class Rubrica {
     }
     
     public void inserisciContatto(Contatto x){
-        if(nome=='null' && cognome=='null')throw new NonValidoException("inserire un nome o cognome");
+        if (x.getNome()=="null" && x.getCognome()=="null") 
+            throw new NonValidoException("inserire un nome o cognome");
     }
  
     public Contatto ricerca(String nome){
