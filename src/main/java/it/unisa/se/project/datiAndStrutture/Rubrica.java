@@ -33,7 +33,15 @@ public class Rubrica {
     public void rimuoviContatto(Contatto contatto) {
 
     }
+    
+    /**
+     * @brief Modifica un contatto
+     * @param contatto Il contatto da modificare
+     */
+    public void modificaContatto(Contatto contatto) {
 
+    }
+    
     /**
      * @brief Cerca contatti per nome o cognome
      * @param ricerca Stringa di ricerca
