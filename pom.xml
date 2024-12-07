@@ -37,6 +37,9 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>it.unisa.se.project.datiAndStrutture.Main</mainClass>
+                    <jvmArgs>
+                        --module-path ${java.home}/lib --add-modules javafx.controls,javafx.fxml
+                    </jvmArgs>
                 </configuration>
             </plugin>
         </plugins>
