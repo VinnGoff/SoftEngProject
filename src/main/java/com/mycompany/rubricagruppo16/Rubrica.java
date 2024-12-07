@@ -31,6 +31,10 @@ public class Rubrica {
         return null;
         
     }
+    
+    public modificaContatto(Contatto contatto){
+        
+    }
 
     public void eliminaContatto(int index){
        
