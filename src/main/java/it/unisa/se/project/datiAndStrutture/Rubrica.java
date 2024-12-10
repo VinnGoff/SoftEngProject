@@ -14,6 +14,7 @@ package it.unisa.se.project.datiAndStrutture;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.io.File;
 
 public class Rubrica {
     private List<Contatto> rubrica;
@@ -23,7 +24,7 @@ public class Rubrica {
      * @param contatto Il contatto da aggiungere
      */
     public void aggiungiContatto(Contatto contatto) {
-
+        
     }
 
     /**
@@ -65,7 +66,16 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void salvaFile(String percorso) throws IOException {
-
+        File myfile =new File(percorso);
+        if(myfile.exist()){
+            System.out.println("cambia nome file");
+        }
+        else{
+            BufferedWriter buffwrite= new BufferedWriter(new FileWriter(myfile));
+            buffwriter.Flush();
+            buffwriter.close();
+        }
+        throw new IOException("file non salvato");
     }
 
     /**
@@ -74,6 +84,19 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void caricaFile(String percorso) throws IOException {
-
+        File myfile = new File(percorso);
+        String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.lenght());
+        if(myfile.isFile()){
+            BufferedReader buffread= new BufferedReader(new FileReader(nomeFile));
+            while(buffread.ready()){
+                System.out.println(buffread.readLine());
+            }
+            buffread.close();
+            
+        }else
+            System.out.println("file non trovato");
+        }
+        throw new IOException("file non caricato");
+        
     }
 }
