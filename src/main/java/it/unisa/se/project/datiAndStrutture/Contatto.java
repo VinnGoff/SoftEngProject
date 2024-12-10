@@ -71,7 +71,9 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre numeri
      */
     public void aggiungiNumeroTel(NumeroTel numero) {
-        
+        if(numero.valido()){
+            numero=numero;
+        }
     }
     
     
@@ -81,7 +83,9 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre email
      */
     public void aggiungiEmail(Email email) {
-        
+        if(email.valido()){
+            email=email;
+        }
     }
     
     /**
@@ -89,7 +93,12 @@ public class Contatto implements Comparable<Contatto>{
      * @param numero Numero da rimuovere
      */
     public void rimuoviNumeroTel(NumeroTel numero) {
-        
+        if(numero=""){
+            return null;
+        }
+        else
+            numero=null;
+            
     }
     
     /**
@@ -98,7 +107,11 @@ public class Contatto implements Comparable<Contatto>{
      */
 
     public void rimuoviEmail(Email email) {
-        
+        if(email=""){
+            return null;
+        }
+        else
+            email=null;
     }
     
     /**
