@@ -53,7 +53,7 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalArgumentException se il nuovo nome è vuoto e il cognome è vuoto
      */
     public void setNome(String nome) {
-        
+        this.nome=nome;
     }
     
     /**
@@ -62,7 +62,7 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalArgumentException se il nuovo cognome è vuoto e il nome è vuoto
      */
     public void setCognome(String cognome) {
-        
+        this.cognome=cognome;
     }
     
     /**
@@ -75,7 +75,6 @@ public class Contatto implements Comparable<Contatto>{
             numero=numero;
         }
     }
-    
     
     /**
      * @brief Aggiunge un indirizzo email al contatto
@@ -112,14 +111,6 @@ public class Contatto implements Comparable<Contatto>{
         }
         else
             email=null;
-    }
-    
-    /**
-     * @brief Restituisce il nome completo del contatto
-     * @return Nome e cognome concatenati
-     */
-    public String getNomeCompleto() {
-        return nome + cognome;
     }
     
     /**
