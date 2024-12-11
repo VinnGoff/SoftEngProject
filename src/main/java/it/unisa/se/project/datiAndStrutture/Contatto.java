@@ -126,7 +126,7 @@ public class Contatto implements Comparable<Contatto>{
         else{
             for(i=0;i<3;i++){
                 if(indirizziEmail[i]==email)
-                    email.remove();
+                    indirizziEmail.remove();
             }
         }
     }
