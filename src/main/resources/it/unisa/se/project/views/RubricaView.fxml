@@ -44,12 +44,27 @@
                         </Button>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="AprirubricaButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Apri rubrica" />
-                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Salvataggio" />
+                              <Button fx:id="AprirubricaButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Apri rubrica">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin></Button>
                               <Button fx:id="CaricamentoButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Caricamento" />
                            </children>
                            <HBox.margin>
                               <Insets left="60.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Salvataggio">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="AnnullaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Annulla" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
                            </HBox.margin>
                         </VBox>
                      </children>
