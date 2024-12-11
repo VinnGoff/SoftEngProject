@@ -2,7 +2,7 @@
  * @file RubricaController.java
  * @brief Controller principale dell'applicazione
  * 
- * Gestisce l'interazione tra il modello (AddressBook) e la vista
+ * Gestisce l'interazione tra il modello, Rubrica, e la vista, RubricaView
  */
 package it.unisa.se.project.controllers;
 
