@@ -22,14 +22,14 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Rubrica {
-    private List<Contatto> rubrica;
+    private ArrayList<Contatto> rubrica;
     
     /**
      * @brief Costruttore della rubrica
      * @param rubrica
      */
-    public Rubrica(List rubrica) {
-        this.rubrica = new ArrayList<>();
+    public Rubrica() {
+        rubrica = new ArrayList<>();
     }
     
     /**
@@ -37,7 +37,7 @@ public class Rubrica {
      * @param contatto Il contatto da aggiungere
      */
     public void aggiungiContatto(Contatto contatto) {
-        
+        rubrica.add(contatto);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Rubrica {
      * @param contatto Il contatto da rimuovere
      */
     public void rimuoviContatto(Contatto contatto) {
-
+        rubrica.remove(contatto);
     }
     
     /**

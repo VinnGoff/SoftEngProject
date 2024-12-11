@@ -94,10 +94,7 @@ public class Contatto implements Comparable<Contatto>{
      * @param numero Numero da rimuovere
      */
     public void rimuoviNumeroTel(NumeroTel numero) {
-        for(int i=0;i<3;i++){
-            if(numeriTel.get(i).equals(numero))
-                numeriTel.remove(i);
-        }   
+        numeriTel.remove(numero);
     }
     
     /**
@@ -106,11 +103,9 @@ public class Contatto implements Comparable<Contatto>{
      */
 
     public void rimuoviEmail(Email email) {
-        for(int i=0;i<3;i++){
-            if(indirizziEmail.get(i).equals(email))
-                indirizziEmail.remove(i);
-            }
-        }
+        indirizziEmail.remove(email);
+            
+    }
     
     /**
      * @brief Restituisce la lista dei numeri di telefono
