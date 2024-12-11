@@ -45,7 +45,9 @@ public class Rubrica {
      * @param contatto Il contatto da rimuovere
      */
     public void rimuoviContatto(Contatto contatto) {
-        rubrica.remove(contatto);
+        if (!rubrica.isEmpty()) {
+            rubrica.remove(contatto);
+        }
     }
     
     /**
@@ -53,7 +55,7 @@ public class Rubrica {
      * @param contatto Il contatto da modificare
      */
     public void modificaContatto(Contatto contatto) {
-
+        
     }
     
     /**
@@ -62,7 +64,14 @@ public class Rubrica {
      * @return Lista dei contatti che soddisfano la ricerca
      */
     public List<Contatto> ricercaContatto(String ricerca) {
-        return Collections.emptyList();
+        List<Contatto> tempList = new ArrayList<>();
+        for (Contatto c : rubrica) {
+            if (c.getNome().toLowerCase().contains(ricerca.toLowerCase()) ||
+                c.getCognome().toLowerCase().contains(ricerca.toLowerCase())) {
+                tempList.add(c);
+            }
+        }
+        return tempList;
     }
 
     /**
@@ -79,7 +88,7 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void salvaFile(String percorso) throws IOException {
-        File myfile =new File(percorso);
+        File myfile = new File(percorso);
         if(myfile.exists()){
             System.out.println("cambia nome file");
         }
