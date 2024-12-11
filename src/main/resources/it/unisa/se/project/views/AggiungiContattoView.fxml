@@ -26,7 +26,7 @@
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../Pictures/profilo.png" />
+                  <Image url="@../../../../../../java/it/unisa/se/project/image/profilo.png" />
                </image>
             </ImageView>
             <GridPane alignment="CENTER">
