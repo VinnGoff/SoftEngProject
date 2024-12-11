@@ -81,7 +81,7 @@ public class Contatto implements Comparable<Contatto>{
     public void aggiungiNumeroTel(NumeroTel numero) {
         if(!numeriTel[].isEmpty()) throw new IndexOutOfBoundException();
         else
-            numeroTel[]=numero;
+            numeroTel.add(numero);
         }
     }
     
@@ -93,7 +93,7 @@ public class Contatto implements Comparable<Contatto>{
     public void aggiungiEmail(Email email) {
         if(!indirizzoEmail[].isEmpty()) throw new IndexOutOfBoundException();
         else
-            indirizzoEmail[]=email;
+            indirizzoEmail.add(email);
         else 
     }
     
