@@ -58,7 +58,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleAggiungiContatto() {
-
+        //students.add(new Student(nameField.getText(),surnameField.getText(), codeField.getText())); esempio aggiunta studente in esercizio di oop
     }
 
     /**

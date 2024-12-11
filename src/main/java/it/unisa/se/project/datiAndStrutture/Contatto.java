@@ -29,8 +29,8 @@ public class Contatto implements Comparable<Contatto>{
     public Contatto(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
-        numeriTel=new List<NumeroTel>;
-        indirizziEmail=new List<Email>;
+        numeriTel=new List<NumeroTel>();
+        indirizziEmail=new List<Email>();
     }
     
     /**
