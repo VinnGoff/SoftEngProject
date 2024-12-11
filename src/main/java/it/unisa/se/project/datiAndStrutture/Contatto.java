@@ -7,6 +7,7 @@
  */
 package it.unisa.se.project.datiAndStrutture;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,15 +21,22 @@ public class Contatto implements Comparable<Contatto>{
     private List<NumeroTel> numeriTel;
     private List<Email> indirizziEmail;
     
+    public static final int TELEFONI_MAX = 3;
+    public static final int EMAIL_MAX = 3;
+    
     /**
      * @brief Costruisce un nuovo contatto
-     * @param nome Nome del contatto (può essere vuoto se lastName non lo è)
-     * @param cognome Cognome del contatto (può essere vuoto se firstName non lo è)
+     * @param nome Nome del contatto (può essere vuoto se cognome non lo è)
+     * @param cognome Cognome del contatto (può essere vuoto se nome non lo è)
+     * @param numeriTel Lista che contiene i numeri di telefono del contatto
+     * @param indirizziEmail Lista che contiene gli indirizzi email del contatto
      * @throws IllegalArgumentException se entrambi firstName e lastName sono vuoti
      */
-    public Contatto(String nome, String cognome){
+    public Contatto(String nome, String cognome, List numeriTel, List indirizziEmail){
         this.nome = nome;
         this.cognome = cognome;
+        this.numeriTel = new ArrayList<>(TELEFONI_MAX);
+        this.indirizziEmail = new ArrayList<>(EMAIL_MAX);
     }
     
     /**
