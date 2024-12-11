@@ -28,11 +28,9 @@ public class Contatto implements Comparable<Contatto>{
      * @brief Costruisce un nuovo contatto
      * @param nome Nome del contatto (può essere vuoto se cognome non lo è)
      * @param cognome Cognome del contatto (può essere vuoto se nome non lo è)
-     * @param numeriTel Lista che contiene i numeri di telefono del contatto
-     * @param indirizziEmail Lista che contiene gli indirizzi email del contatto
      * @throws IllegalArgumentException se entrambi firstName e lastName sono vuoti
      */
-    public Contatto(String nome, String cognome, List numeriTel, List indirizziEmail){
+    public Contatto(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
         this.numeriTel = new ArrayList<>(TELEFONI_MAX);

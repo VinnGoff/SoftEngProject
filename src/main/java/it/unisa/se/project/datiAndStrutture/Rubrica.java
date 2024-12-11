@@ -19,9 +19,18 @@ import java.util.List;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class Rubrica {
     private List<Contatto> rubrica;
+    
+    /**
+     * @brief Costruttore della rubrica
+     * @param rubrica
+     */
+    public Rubrica(List rubrica) {
+        this.rubrica = new ArrayList<>();
+    }
     
     /**
      * @brief Aggiunge un nuovo contatto
