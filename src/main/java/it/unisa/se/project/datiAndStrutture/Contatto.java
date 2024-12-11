@@ -79,8 +79,9 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre numeri
      */
     public void aggiungiNumeroTel(NumeroTel numero) {
-        if(numero.valido()){
-            numero=numero;
+        if(!numeriTel[].isEmpty()) throw new IndexOutOfBoundException();
+        else
+            numeroTel[]=numero;
         }
     }
     
@@ -90,9 +91,10 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre email
      */
     public void aggiungiEmail(Email email) {
-        if(email.valido()){
-            email=email;
-        }
+        if(!indirizzoEmail[].isEmpty()) throw new IndexOutOfBoundException();
+        else
+            indirizzoEmail[]=email;
+        else 
     }
     
     /**
@@ -100,11 +102,15 @@ public class Contatto implements Comparable<Contatto>{
      * @param numero Numero da rimuovere
      */
     public void rimuoviNumeroTel(NumeroTel numero) {
-        if(numero=""){
-            return null;
+        if(numeriTel.isEmpty()){
+            System.out.println("lista vuota");
         }
-        else
-            numero=null;
+        else{
+            for(i=0;i<3;i++){
+                if(numeriTel[i]==numero)
+                    numeriTel.remove();
+            }
+        }
             
     }
     
@@ -114,11 +120,15 @@ public class Contatto implements Comparable<Contatto>{
      */
 
     public void rimuoviEmail(Email email) {
-        if(email=""){
-            return null;
+        if(email.isEmpty()){
+            System.out.println("lista vuota");
         }
-        else
-            email=null;
+        else{
+            for(i=0;i<3;i++){
+                if(indirizziEmail[i]==email)
+                    email.remove();
+            }
+        }
     }
     
     /**
