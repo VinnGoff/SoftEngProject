@@ -71,7 +71,7 @@ public class Rubrica {
      */
     public void salvaFile(String percorso) throws IOException {
         File myfile =new File(percorso);
-        if(myfile.exist()){
+        if(myfile.exists()){
             System.out.println("cambia nome file");
         }
         else{
@@ -89,7 +89,7 @@ public class Rubrica {
      */
     public void caricaFile(String percorso) throws IOException {
         File myfile = new File(percorso);
-        String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.lenght());
+        String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
         if(myfile.isFile()){
             BufferedReader buffread= new BufferedReader(new FileReader(nomeFile));
             while(buffread.ready()){
