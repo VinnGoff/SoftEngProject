@@ -11,10 +11,14 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class Rubrica {
     private List<Contatto> rubrica;
@@ -71,8 +75,8 @@ public class Rubrica {
             System.out.println("cambia nome file");
         }
         else{
-            BufferedWriter buffwrite= new BufferedWriter(new FileWriter(myfile));
-            buffwriter.Flush();
+            BufferedWriter buffwriter= new BufferedWriter(new FileWriter(myfile));
+            buffwriter.flush();
             buffwriter.close();
         }
         throw new IOException("file non salvato");
@@ -95,7 +99,7 @@ public class Rubrica {
             
         }else
             System.out.println("file non trovato");
-        }
+        
         throw new IOException("file non caricato");
         
     }
