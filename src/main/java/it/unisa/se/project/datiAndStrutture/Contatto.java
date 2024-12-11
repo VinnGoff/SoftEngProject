@@ -9,7 +9,7 @@ package it.unisa.se.project.datiAndStrutture;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,8 +18,8 @@ import java.util.List;
 public class Contatto implements Comparable<Contatto>{
     private String nome;
     private String cognome;
-    private List<NumeroTel> numeriTel;
-    private List<Email> indirizziEmail;
+    private ArrayList<NumeroTel> numeriTel;
+    private ArrayList<Email> indirizziEmail;
     
     public static final int TELEFONI_MAX = 3;
     public static final int EMAIL_MAX = 3;
@@ -33,8 +33,8 @@ public class Contatto implements Comparable<Contatto>{
     public Contatto(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
-        this.numeriTel = new ArrayList<>(TELEFONI_MAX);
-        this.indirizziEmail = new ArrayList<>(EMAIL_MAX);
+        numeriTel = new ArrayList<>(TELEFONI_MAX);
+        indirizziEmail = new ArrayList<>(EMAIL_MAX);
     }
     
     /**
@@ -77,10 +77,7 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre numeri
      */
     public void aggiungiNumeroTel(NumeroTel numero) {
-        if(!numeriTel[].isEmpty()) throw new IndexOutOfBoundException();
-        else
-            numeroTel[]=numero;
-        }
+        numeriTel.add(numero);
     }
     
     /**
@@ -89,10 +86,7 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre email
      */
     public void aggiungiEmail(Email email) {
-        if(!indirizzoEmail[].isEmpty()) throw new IndexOutOfBoundException();
-        else
-            indirizzoEmail[]=email;
-        else 
+        indirizziEmail.add(email);
     }
     
     /**
@@ -100,16 +94,7 @@ public class Contatto implements Comparable<Contatto>{
      * @param numero Numero da rimuovere
      */
     public void rimuoviNumeroTel(NumeroTel numero) {
-        if(numeriTel.isEmpty()){
-            System.out.println("lista vuota");
-        }
-        else{
-            for(i=0;i<3;i++){
-                if(numeriTel[i]==numero)
-                    numeriTel.remove();
-            }
-        }
-            
+        numeriTel.remove(numero);
     }
     
     /**
@@ -118,31 +103,24 @@ public class Contatto implements Comparable<Contatto>{
      */
 
     public void rimuoviEmail(Email email) {
-        if(email.isEmpty()){
-            System.out.println("lista vuota");
-        }
-        else{
-            for(i=0;i<3;i++){
-                if(indirizziEmail[i]==email)
-                    indirizziEmail.remove();
-            }
-        }
+        indirizziEmail.remove(email);
+            
     }
     
     /**
      * @brief Restituisce la lista dei numeri di telefono
      * @return Lista dei numeri di telefono
      */
-    public List<NumeroTel> getNumeriTel() {
-        return Collections.emptyList();
+    public ArrayList<NumeroTel> getNumeriTel() {
+        return numeriTel;
     }
     
     /**
      * @brief Restituisce la lista degli indirizzi email
      * @return Lista degli indirizzi email
      */
-    public List<Email> getIndirizziEmail() {
-        return Collections.emptyList();
+    public ArrayList<Email> getIndirizziEmail() {
+        return indirizziEmail;
     }
     
     /**

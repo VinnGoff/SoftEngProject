@@ -19,6 +19,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+import javafx.event.EventHandler;
 
 /**
  *
@@ -59,6 +62,8 @@ public class RubricaController implements Initializable{
     @FXML
     public void handleAggiungiContatto() {
         //students.add(new Student(nameField.getText(),surnameField.getText(), codeField.getText())); esempio aggiunta studente in esercizio di oop
+        
+    
     }
 
     /**

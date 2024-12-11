@@ -22,14 +22,14 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Rubrica {
-    private List<Contatto> rubrica;
+    private ArrayList<Contatto> rubrica;
     
     /**
      * @brief Costruttore della rubrica
      * @param rubrica
      */
-    public Rubrica(List rubrica) {
-        this.rubrica = new ArrayList<>();
+    public Rubrica() {
+        rubrica = new ArrayList<>();
     }
     
     /**

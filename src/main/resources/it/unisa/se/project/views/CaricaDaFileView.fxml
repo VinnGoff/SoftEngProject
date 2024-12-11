@@ -49,12 +49,12 @@
       </VBox>
       <HBox prefHeight="131.0" prefWidth="600.0" AnchorPane.topAnchor="270.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Annulla">
+            <Button fx:id="AnnullaButtonCaricaFile" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Annulla">
                <HBox.margin>
                   <Insets left="80.0" top="30.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Carica">
+            <Button fx:id="CaricaButtonCaricaFile" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Carica">
                <HBox.margin>
                   <Insets left="270.0" top="30.0" />
                </HBox.margin>
