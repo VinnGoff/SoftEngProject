@@ -90,7 +90,7 @@ public class RubricaController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        contacts=FXCollections.observableArrayList();
+        /*contacts=FXCollections.observableArrayList();
         contattoTable.setItems(contacts);
         
         surnameClm.setCellValueFactory(c -> {return new SimpleStringProperty(c.getValue().getCognome());});
@@ -102,7 +102,7 @@ public class RubricaController implements Initializable{
         mail2Clm.setCellValueFactory(new PropertyValueFactory("mail2"));
         mail3Clm.setCellValueFactory(new PropertyValueFactory("mail3"));
         
-        contattoTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        contattoTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);*/
     }   
     
     /**
@@ -111,7 +111,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleAggiungiContatto(ActionEvent e) {
-        contacts.add(new Contatto(nameField.getText(), surnameField.getText(), new NumeroTel(num1Field.getText()), new NumeroTel(num2Field.getText()), new NumeroTel(num3Field.getText()), new Email(mail1Field.getText()), new Email(mail2Field.getText()), new Email(mail3Field.getText()))); 
+        //contacts.add(new Contatto(nameField.getText(), surnameField.getText(), new NumeroTel(num1Field.getText()), new NumeroTel(num2Field.getText()), new NumeroTel(num3Field.getText()), new Email(mail1Field.getText()), new Email(mail2Field.getText()), new Email(mail3Field.getText()))); 
     }
 
     /**
@@ -120,8 +120,8 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleModificaContatto(ActionEvent e) {
-       Contatto c=contattoTable.getSelectionModel().getSelectedItem();
-       //s.setName(event.getNewValue());
+       /*Contatto c=contattoTable.getSelectionModel().getSelectedItem();
+       //s.setName(event.getNewValue());*/
        
        
     }
@@ -132,8 +132,8 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRimuoviContatto(ActionEvent e) {
-        Contatto selected=contattoTable.getSelectionModel().getSelectedItem();
-        contacts.remove(selected);
+        /*Contatto selected=contattoTable.getSelectionModel().getSelectedItem();
+        contacts.remove(selected);*/
     }
 
     /**
