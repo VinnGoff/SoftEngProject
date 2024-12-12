@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -86,7 +87,7 @@ public class RubricaController implements Initializable{
     @FXML
     private TableColumn<Contatto, String> mail3Clm;
     
-    ObservableList <Contatto> contacts;
+    private ObservableList <Contatto> contacts;
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -119,7 +120,7 @@ public class RubricaController implements Initializable{
      * @brief Gestisce la modifica di un contatto
      */
     @FXML
-    public void handleModificaContatto(ActionEvent e) {
+    public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
        Contatto c=contattoTable.getSelectionModel().getSelectedItem();
        //s.setName(event.getNewValue());
        
