@@ -29,7 +29,7 @@
                               <Insets left="40.0" top="8.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField prefHeight="40.0" prefWidth="300.0" text="Inserisci nome o cognome">
+                        <TextField fx:id="searchField" prefHeight="40.0" prefWidth="300.0" text="Inserisci nome o cognome">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -95,7 +95,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="surnameField">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -105,7 +105,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="nameField">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -115,7 +115,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="num1Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -125,7 +125,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="num2Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -135,7 +135,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="num3Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -145,7 +145,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="mail1Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -155,7 +155,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="mail2Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -165,21 +165,21 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="mail3Field">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <HBox prefHeight="56.0" prefWidth="231.0">
                                        <children>
-                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Elimina">
-                                             <HBox.margin>
-                                                <Insets left="18.0" />
-                                             </HBox.margin>
-                                          </Button>
                                           <Button fx:id="SalvaButtonContatto" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Salva">
                                              <HBox.margin>
                                                 <Insets left="35.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Elimina">
+                                             <HBox.margin>
+                                                <Insets left="18.0" />
                                              </HBox.margin>
                                           </Button>
                                        </children>
@@ -203,14 +203,14 @@
                            <children>
                               <TableView layoutX="-0.6666666666666666" prefHeight="868.0" prefWidth="756.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn prefWidth="90.0" text="Cognome" />
-                                  <TableColumn prefWidth="90.0" text="Nome" />
-                                    <TableColumn prefWidth="90.0" text="Numero1" />
-                                    <TableColumn prefWidth="90.0" text="Numero2" />
-                                    <TableColumn prefWidth="90.0" text="Numero3" />
-                                    <TableColumn prefWidth="90.0" text="E-mail1" />
-                                    <TableColumn prefWidth="90.0" text="E-mail2" />
-                                    <TableColumn prefWidth="90.0" text="E-mail3" />
+                                  <TableColumn fx:id="surnameClm" prefWidth="90.0" text="Cognome" />
+                                  <TableColumn fx:id="nameClm" prefWidth="90.0" text="Nome" />
+                                    <TableColumn fx:id="num1Clm" prefWidth="90.0" text="Numero1" />
+                                    <TableColumn fx:id="num2Clm" prefWidth="90.0" text="Numero2" />
+                                    <TableColumn fx:id="num3Clm" prefWidth="90.0" text="Numero3" />
+                                    <TableColumn fx:id="mail1Clm" prefWidth="90.0" text="E-mail1" />
+                                    <TableColumn fx:id="mail2Clm" prefWidth="90.0" text="E-mail2" />
+                                    <TableColumn fx:id="mail3Clm" prefWidth="90.0" text="E-mail3" />
                                 </columns>
                               </TableView>
                            </children></AnchorPane>

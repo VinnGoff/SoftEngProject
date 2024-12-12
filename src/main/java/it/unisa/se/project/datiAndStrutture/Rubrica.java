@@ -96,7 +96,7 @@ public class Rubrica {
             Scanner scanner=new Scanner(buffwriter);      
         }
         catch(IOException e){
-            throw new RunTimeException;
+            System.out.println("Errore");
         }
         finally{
             buffwriter.close();
@@ -116,7 +116,7 @@ public class Rubrica {
             PrintWriter fileOutput= new PrintWriter(buffread);
         }
         catch(IOException e){
-            throw new RunTimeException();
+            System.out.println("Errore");
         }
         finally{
             buffread.close();
