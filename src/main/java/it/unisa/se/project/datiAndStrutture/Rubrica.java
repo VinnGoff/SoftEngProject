@@ -80,7 +80,7 @@ public class Rubrica {
      * @return Lista ordinata dei contatti
      */
     public List<Contatto> ordinaContatti() {
-        return Collections.emptyList();
+        return Collections.emptyList();//potrebbe non servire più perchè la tableview lo fa in automatico
     }
 
     /**

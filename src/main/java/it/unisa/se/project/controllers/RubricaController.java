@@ -36,6 +36,10 @@ public class RubricaController implements Initializable{
     @FXML
     private Button saveBtn;
     @FXML
+    private Button EliminaBtnContatto;
+    @FXML
+    private Button ModificaBtnContatto;
+    @FXML
     private TextField nameField;
     @FXML
     private TextField surnameField;
@@ -54,7 +58,15 @@ public class RubricaController implements Initializable{
     @FXML
     private TextField searchField;
     @FXML
-    private Button rimuoviButton;
+    private Button cercaBtnRubrica;
+    @FXML
+    private Button aprirubricaBtnRubrica;
+    @FXML
+    private Button caricamentoBtnRubrica;
+    @FXML
+    private Button salvataggioBtnRubrica;
+    @FXML
+    private Button annullaBtn;
     @FXML
     private TableView<Contatto> contattoTable;
     @FXML
@@ -108,7 +120,10 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleModificaContatto(ActionEvent e) {
-
+       Contatto c=contattoTable.getSelectionModel().getSelectedItem();
+       //s.setName(event.getNewValue());
+       
+       
     }
 
     /**
@@ -127,7 +142,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
-
+        //ricercaContatto(searchField.getText());
     }
 
     /**
