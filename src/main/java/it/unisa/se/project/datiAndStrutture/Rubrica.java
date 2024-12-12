@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
-import java.util.stream.Collectors;
 
 public class Rubrica {
     private ArrayList<Contatto> rubrica;
