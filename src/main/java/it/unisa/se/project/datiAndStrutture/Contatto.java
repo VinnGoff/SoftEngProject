@@ -33,8 +33,8 @@ public class Contatto implements Comparable<Contatto>{
     public Contatto(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
-        numeriTel = new ArrayList<>(TELEFONI_MAX);
-        indirizziEmail = new ArrayList<>(EMAIL_MAX);
+        numeriTel = new ArrayList<>();
+        indirizziEmail = new ArrayList<>();
     }
     
     /**
@@ -77,7 +77,9 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre numeri
      */
     public void aggiungiNumeroTel(NumeroTel numero) {
-        numeriTel.add(numero);
+        if (numeriTel.size() < TELEFONI_MAX) {
+            numeriTel.add(numero);
+        }
     }
     
     /**
@@ -86,7 +88,9 @@ public class Contatto implements Comparable<Contatto>{
      * @throws IllegalStateException se il contatto ha già tre email
      */
     public void aggiungiEmail(Email email) {
-        indirizziEmail.add(email);
+        if (indirizziEmail.size() < EMAIL_MAX) {
+            indirizziEmail.add(email);
+        }
     }
     
     /**
@@ -94,7 +98,9 @@ public class Contatto implements Comparable<Contatto>{
      * @param numero Numero da rimuovere
      */
     public void rimuoviNumeroTel(NumeroTel numero) {
-        numeriTel.remove(numero);
+        if (!numeriTel.isEmpty()) {
+            numeriTel.remove(numero);
+        }
     }
     
     /**
@@ -103,8 +109,9 @@ public class Contatto implements Comparable<Contatto>{
      */
 
     public void rimuoviEmail(Email email) {
-        indirizziEmail.remove(email);
-            
+        if (!indirizziEmail.isEmpty()) {
+            indirizziEmail.remove(email);
+        }
     }
     
     /**
@@ -112,7 +119,7 @@ public class Contatto implements Comparable<Contatto>{
      * @return Lista dei numeri di telefono
      */
     public ArrayList<NumeroTel> getNumeriTel() {
-        return numeriTel;
+        return new ArrayList<>(numeriTel);
     }
     
     /**
@@ -120,7 +127,7 @@ public class Contatto implements Comparable<Contatto>{
      * @return Lista degli indirizzi email
      */
     public ArrayList<Email> getIndirizziEmail() {
-        return indirizziEmail;
+        return new ArrayList<>(indirizziEmail);
     }
     
     /**
