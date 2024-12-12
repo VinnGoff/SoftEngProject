@@ -108,7 +108,10 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleModificaContatto(ActionEvent e) {
-
+       Contatto c=contattoTable.getSelectionModel().getSelectedItem();
+       //s.setName(event.getNewValue());
+       
+       
     }
 
     /**
@@ -127,7 +130,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
-
+        //ricercaContatto(searchField.getText());
     }
 
     /**
