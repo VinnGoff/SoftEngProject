@@ -14,6 +14,8 @@ package it.unisa.se.project.datiAndStrutture;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.scanner.Scanner;
 import java.util.Collections;
 import java.util.List;
 import java.io.File;
@@ -87,16 +89,17 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void salvaFile(String percorso) throws IOException {
-        File myfile = new File(percorso);
-        if(myfile.exists()){
-            System.out.println("cambia nome file");
-        }
-        else{
+        try{
+            File myfile = new File(percorso);
             BufferedWriter buffwriter= new BufferedWriter(new FileWriter(myfile));
-            buffwriter.flush();
+            Scanner scanner=new Scanner(buffwriter);      
+        }
+        catch(IOException e){
+            throw new RunTimeException;
+        }
+        finally{
             buffwriter.close();
         }
-        throw new IOException("file non salvato");
     }
 
     /**
@@ -105,19 +108,18 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void caricaFile(String percorso) throws IOException {
-        File myfile = new File(percorso);
-        String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
-        if(myfile.isFile()){
+        try{
+            File myfile = new File(percorso);
+            String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
             BufferedReader buffread= new BufferedReader(new FileReader(nomeFile));
-            while(buffread.ready()){
-                System.out.println(buffread.readLine());
-            }
+            PrintWriter fileOutput= new PrintWriter(buffread);
+        }
+        catch(IOException e){
+            throw new RunTimeException();
+        }
+        finally{
             buffread.close();
-            
-        }else
-            System.out.println("file non trovato");
-        
-        throw new IOException("file non caricato");
+        }
         
     }
 }
