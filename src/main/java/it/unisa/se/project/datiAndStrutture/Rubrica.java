@@ -11,12 +11,13 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
-import java.io.BufferedReader;
+//import java.io.BufferedReader;
 import java.io.IOException;
+//import java.scanner.Scanner;
 import java.util.Collections;
 import java.util.List;
-import java.io.File;
-import java.io.FileReader;
+//import java.io.File;
+//import java.io.FileReader;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -109,8 +110,8 @@ public class Rubrica {
                 pw.append(email);
                 pw.append("\n");
             }
-        }
-        catch(IOException e){            
+        } catch (IOException ex) {
+            
         }
     }
 
@@ -119,7 +120,8 @@ public class Rubrica {
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
      */
-    public void caricaFile(String percorso) throws IOException {
+    /*public void caricaFile(String percorso) throws IOException {
+        
         try{
             File myfile = new File(percorso);
             String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
@@ -127,11 +129,11 @@ public class Rubrica {
             PrintWriter fileOutput= new PrintWriter(buffread);
         }
         catch(IOException e){
-            throw new RunTimeException();
+            System.out.println("Errore");
         }
         finally{
             buffread.close();
         }
         
-    }
+    }*/
 }
