@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.scanner.Scanner;
+//import java.scanner.Scanner;
 import java.util.Collections;
 import java.util.List;
 import java.io.File;
@@ -90,6 +90,7 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void salvaFile(String percorso) throws IOException {
+        /*
         try{
             File myfile = new File(percorso);
             BufferedWriter buffwriter= new BufferedWriter(new FileWriter(myfile));
@@ -101,6 +102,7 @@ public class Rubrica {
         finally{
             buffwriter.close();
         }
+        */
     }
 
     /**
@@ -109,6 +111,7 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void caricaFile(String percorso) throws IOException {
+        /*
         try{
             File myfile = new File(percorso);
             String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
@@ -121,6 +124,6 @@ public class Rubrica {
         finally{
             buffread.close();
         }
-        
+        */
     }
 }

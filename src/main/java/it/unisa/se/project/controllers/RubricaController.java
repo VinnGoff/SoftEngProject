@@ -6,11 +6,9 @@
  */
 package it.unisa.se.project.controllers;
 
-import it.unisa.se.project.datiAndStrutture.Contatto;
-import it.unisa.se.project.datiAndStrutture.Email;
-import it.unisa.se.project.datiAndStrutture.NumeroTel;
+import it.unisa.se.project.datiAndStrutture.*;
+import java.io.File;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -18,7 +16,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,6 +24,7 @@ import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -96,50 +94,80 @@ public class RubricaController implements Initializable{
     }   
     
     /**
+     * @param e
      * @brief Gestisce l'aggiunta di un nuovo contatto
      */
     @FXML
-    public void handleAggiungiContatto() {
-        contacts.add(new Contatto(nameField.getText(),surnameField.getText())); 
+    public void handleAggiungiContatto(ActionEvent e) {
+        contacts.add(new Contatto(nameField.getText(), surnameField.getText(), new NumeroTel(num1Field.getText()), new NumeroTel(num2Field.getText()), new NumeroTel(num3Field.getText()), new Email(mail1Field.getText()), new Email(mail2Field.getText()), new Email(mail3Field.getText()))); 
     }
 
     /**
+     * @param e
      * @brief Gestisce la modifica di un contatto
      */
     @FXML
-    public void handleModificaContatto() {
+    public void handleModificaContatto(ActionEvent e) {
 
     }
 
     /**
+     * @param e
      * @brief Gestisce l'eliminazione di un contatto
      */
     @FXML
-    public void handleRimuoviContatto() {
-
+    public void handleRimuoviContatto(ActionEvent e) {
+        Contatto selected=contattoTable.getSelectionModel().getSelectedItem();
+        contacts.remove(selected);
     }
 
     /**
+     * @param e
      * @brief Gestisce la ricerca dei contatti
      */
     @FXML
-    public void handleRicerca() {
+    public void handleRicerca(ActionEvent e) {
 
     }
 
     /**
+     * @param e
      * @brief Gestisce il salvataggio della rubrica
      */
     @FXML
-    public void handleSalvataggio() {
+    public void handleSalvataggio(ActionEvent e) {
+        /*
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Contacts");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File selectedFile = fileChooser.showSaveDialog(null);
 
+        if (selectedFile != null) {
+            rubric.(selectedFile.getAbsolutePath());
+            System.out.println("Contacts exported successfully.");
+        }
+        */
     }
 
     /**
+     * @param e
      * @brief Gestisce il caricamento della rubrica
      */
     @FXML
-    public void handleCaricamento() {
+    public void handleCaricamento(ActionEvent e) {
+        /*
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showOpenDialog(null);
 
+        if (file != null) {
+            Rubrica importedRubric = rubric.importContacts(file.getAbsolutePath());
+            
+            if (importedRubric != null) {
+                rubric.getContacts().addAll(importedRubric.getContacts());
+                contattoTable.refresh();
+            } 
+        }
+        */
     }
 }
