@@ -26,7 +26,6 @@ public class Rubrica {
     
     /**
      * @brief Costruttore della rubrica
-     * @param rubrica
      */
     public Rubrica() {
         rubrica = new ArrayList<>();
