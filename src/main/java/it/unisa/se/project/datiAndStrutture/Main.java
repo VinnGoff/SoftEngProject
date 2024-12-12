@@ -19,7 +19,7 @@ public class Main extends Application{
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/it/unisa/se/project/views/RubricaView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/it/unisa/se/project/views/RubricaView.fxml"));
         
         Scene scene = new Scene(root);
         
