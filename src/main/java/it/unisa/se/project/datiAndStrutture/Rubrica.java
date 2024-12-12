@@ -11,24 +11,23 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+//import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 //import java.scanner.Scanner;
 import java.util.Collections;
 import java.util.List;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+//import java.io.File;
+//import java.io.FileReader;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.PrintWriter;
 
 public class Rubrica {
     private ArrayList<Contatto> rubrica;
     
     /**
      * @brief Costruttore della rubrica
-     * @param rubrica
      */
     public Rubrica() {
         rubrica = new ArrayList<>();
@@ -90,19 +89,30 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void salvaFile(String percorso) throws IOException {
-        /*
-        try{
-            File myfile = new File(percorso);
-            BufferedWriter buffwriter= new BufferedWriter(new FileWriter(myfile));
-            Scanner scanner=new Scanner(buffwriter);      
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(percorso)))){
+            pw.println("Nome,Cognome,Numeri di telefono,Indirizzi e-mail");
+            for (Contatto contatto : rubrica) {
+                pw.append(contatto.getNome());
+                pw.append(",");
+                pw.append(contatto.getCognome());
+                pw.append(",");
+                // Converti l'ArrayList di numeri in stringa
+                String numeriTel = contatto.getNumeriTel().toString();
+                // Rimuovi le parentesi quadre dall'output dell'ArrayList
+                numeriTel = numeriTel.substring(1, numeriTel.length() - 1);
+                pw.append(numeriTel);
+                pw.append(",");
+                
+                // Converti l'ArrayList di email in stringa
+                String email = contatto.getIndirizziEmail().toString();
+                // Rimuovi le parentesi quadre dall'output dell'ArrayList
+                email = email.substring(1, email.length() - 1);
+                pw.append(email);
+                pw.append("\n");
+            }
+        } catch (IOException ex) {
+            
         }
-        catch(IOException e){
-            System.out.println("Errore");
-        }
-        finally{
-            buffwriter.close();
-        }
-        */
     }
 
     /**
@@ -110,8 +120,8 @@ public class Rubrica {
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
      */
-    public void caricaFile(String percorso) throws IOException {
-        /*
+    /*public void caricaFile(String percorso) throws IOException {
+        
         try{
             File myfile = new File(percorso);
             String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
@@ -124,6 +134,6 @@ public class Rubrica {
         finally{
             buffread.close();
         }
-        */
-    }
+        
+    }*/
 }
