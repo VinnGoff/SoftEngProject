@@ -30,11 +30,19 @@ public class Contatto implements Comparable<Contatto>{
      * @param cognome Cognome del contatto (può essere vuoto se nome non lo è)
      * @throws IllegalArgumentException se entrambi firstName e lastName sono vuoti
      */
-    public Contatto(String nome, String cognome){
+    public Contatto(String nome, String cognome, NumeroTel num1, NumeroTel num2, NumeroTel num3, Email mail1, Email mail2, Email mail3){
         this.nome = nome;
         this.cognome = cognome;
         numeriTel = new ArrayList<>(TELEFONI_MAX);
         indirizziEmail = new ArrayList<>(EMAIL_MAX);
+        
+        numeriTel.add(num1);
+        numeriTel.add(num2);
+        numeriTel.add(num3);
+        
+        indirizziEmail.add(mail1);
+        indirizziEmail.add(mail2);
+        indirizziEmail.add(mail3);
     }
     
     /**

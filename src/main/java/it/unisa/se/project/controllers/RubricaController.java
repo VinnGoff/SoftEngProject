@@ -25,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -35,13 +36,25 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class RubricaController implements Initializable{
     
     @FXML
-    private MenuItem salvaButton;
+    private Button saveBtn;
     @FXML
-    private TextField nomeField;
+    private TextField nameField;
     @FXML
-    private TextField cognomeField;
+    private TextField surnameField;
     @FXML
-    private TextField numeriTelField;
+    private TextField num1Field;
+    @FXML
+    private TextField num2Field;
+    @FXML
+    private TextField num3Field;
+    @FXML
+    private TextField mail1Field;
+    @FXML
+    private TextField mail2Field;
+    @FXML
+    private TextField mail3Field;
+    @FXML
+    private TextField searchField;
     @FXML
     private Button rimuoviButton;
     @FXML
@@ -78,6 +91,8 @@ public class RubricaController implements Initializable{
         mail1Clm.setCellValueFactory(new PropertyValueFactory("mail1"));
         mail2Clm.setCellValueFactory(new PropertyValueFactory("mail2"));
         mail3Clm.setCellValueFactory(new PropertyValueFactory("mail3"));
+        
+        contattoTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }   
     
     /**
@@ -85,9 +100,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleAggiungiContatto() {
-        //students.add(new Student(nameField.getText(),surnameField.getText(), codeField.getText())); esempio aggiunta studente in esercizio di oop
-        
-    
+        contacts.add(new Contatto(nameField.getText(),surnameField.getText())); 
     }
 
     /**

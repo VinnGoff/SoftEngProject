@@ -172,7 +172,7 @@
                                     </TextField>
                                     <HBox prefHeight="56.0" prefWidth="231.0">
                                        <children>
-                                          <Button fx:id="SalvaButtonContatto" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Salva">
+                                          <Button fx:id="saveBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Salva">
                                              <HBox.margin>
                                                 <Insets left="35.0" />
                                              </HBox.margin>
