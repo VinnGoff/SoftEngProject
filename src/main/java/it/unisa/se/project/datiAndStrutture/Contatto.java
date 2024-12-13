@@ -28,6 +28,12 @@ public class Contatto implements Comparable<Contatto>{
      * @brief Costruisce un nuovo contatto
      * @param nome Nome del contatto (può essere vuoto se cognome non lo è)
      * @param cognome Cognome del contatto (può essere vuoto se nome non lo è)
+     * @param num1 Il primo numero di telefono
+     * @param num2 Il secondo numero di telefono
+     * @param num3 Il terzo numero di telefono
+     * @param mail1 Il primo indirizzo e-mail
+     * @param mail2 Il secondo indirizzo e-mail
+     * @param mail3 Il terzo indirizzo e-mail
      * @throws IllegalArgumentException se entrambi firstName e lastName sono vuoti
      */
     public Contatto(String nome, String cognome, NumeroTel num1, NumeroTel num2, NumeroTel num3, Email mail1, Email mail2, Email mail3){
