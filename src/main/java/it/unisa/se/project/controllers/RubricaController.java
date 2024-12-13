@@ -122,7 +122,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
-       Contatto c=contattoTable.getSelectionModel().getSelectedItem();
+       Contatto selectedrow=contattoTable.getSelectionModel().getSelectedItem();
        //s.setName(event.getNewValue());
        
        
@@ -134,8 +134,8 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRimuoviContatto(ActionEvent e) {
-        /*Contatto selected=contattoTable.getSelectionModel().getSelectedItem();
-        contacts.remove(selected);*/
+        /*Contatto selectedrow=contattoTable.getSelectionModel().getSelectedItem();
+        /*selectionModel.clearSelection();
     }
 
     /**
@@ -144,6 +144,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
+        //completare
         contattoTable.getSortOrder().addAll(surnameClm, nameClm);
     }
     @FXML
