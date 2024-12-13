@@ -121,9 +121,9 @@ public class RubricaController implements Initializable{
      * @brief Gestisce la modifica di un contatto
      */
     @FXML
-    public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, Stringa> event) {
-       /*Contatto c=contattoTable.getSelectionModel().getSelectedItem();
-       //s.setName(event.getNewValue());*/
+    public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
+       Contatto c=contattoTable.getSelectionModel().getSelectedItem();
+       //s.setName(event.getNewValue());
        
        
     }
