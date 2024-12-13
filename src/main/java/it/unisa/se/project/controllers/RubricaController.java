@@ -112,6 +112,7 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleAggiungiContatto(ActionEvent e) {
+        
         //contacts.add(new Contatto(nameField.getText(), surnameField.getText(), new NumeroTel(num1Field.getText()), new NumeroTel(num2Field.getText()), new NumeroTel(num3Field.getText()), new Email(mail1Field.getText()), new Email(mail2Field.getText()), new Email(mail3Field.getText()))); 
     }
 
@@ -143,7 +144,11 @@ public class RubricaController implements Initializable{
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
-        //ricercaContatto(searchField.getText());
+        contattoTable.getSortOrder().addAll(surnameClm, nameClm);
+    }
+    @FXML
+    public void handleAnnulla(ActionEvent e){
+        e.consume();
     }
 
     /**
