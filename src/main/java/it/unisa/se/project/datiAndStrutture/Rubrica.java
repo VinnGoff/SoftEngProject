@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 public class Rubrica {
     private ArrayList<Contatto> rubrica;
@@ -90,28 +91,36 @@ public class Rubrica {
      */
     public void salvaFile(String percorso) throws IOException {
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(percorso)))){
-            pw.println("Nome,Cognome,Numeri di telefono,Indirizzi e-mail");
+            final String SEPARATORE = ","; // Separatore tra i campi
+            pw.println("Nome,Cognome,Numero 1,Numero 2, Numero 3,Email 1, Email 2, Email 3");
             for (Contatto contatto : rubrica) {
+                // Nome
                 pw.append(contatto.getNome());
-                pw.append(",");
-                pw.append(contatto.getCognome());
-                pw.append(",");
-                // Converti l'ArrayList di numeri in stringa
-                String numeriTel = contatto.getNumeriTel().toString();
-                // Rimuovi le parentesi quadre dall'output dell'ArrayList
-                numeriTel = numeriTel.substring(1, numeriTel.length() - 1);
-                pw.append(numeriTel);
-                pw.append(",");
+                pw.append(SEPARATORE);
                 
-                // Converti l'ArrayList di email in stringa
-                String email = contatto.getIndirizziEmail().toString();
-                // Rimuovi le parentesi quadre dall'output dell'ArrayList
-                email = email.substring(1, email.length() - 1);
-                pw.append(email);
+                // Cognome
+                pw.append(contatto.getCognome());
+                pw.append(SEPARATORE);
+                
+                // Numeri di telefono
+                for (NumeroTel numeroTel : contatto.getNumeriTel()) {
+                    pw.append(numeroTel.toString());
+                    pw.append(SEPARATORE);
+                }
+
+                // Indirizzi email
+                Iterator<Email> emailIterator = contatto.getIndirizziEmail().iterator();
+                while (emailIterator.hasNext()) {
+                    Email email = emailIterator.next();
+                    pw.append(email.toString());
+                    if (emailIterator.hasNext()) {
+                        pw.append(SEPARATORE);
+                    }
+                }
                 pw.append("\n");
             }
         } catch (IOException ex) {
-            
+            System.err.println("Errore durante la scrittura del file: " + ex.getMessage());
         }
     }
 
