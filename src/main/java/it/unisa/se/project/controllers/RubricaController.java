@@ -110,8 +110,8 @@ public class RubricaController implements Initializable{
     }   
     
     /**
-     * @param e
      * @brief Gestisce l'aggiunta di un nuovo contatto
+     * @param e
      */
     @FXML
     public void handleAggiungiContatto(ActionEvent e) {
@@ -119,8 +119,8 @@ public class RubricaController implements Initializable{
     }
 
     /**
-     * @param e
      * @brief Gestisce la modifica di un contatto
+     * @param event 
      */
     @FXML
     public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
@@ -129,8 +129,8 @@ public class RubricaController implements Initializable{
     }
 
     /**
-     * @param e
      * @brief Gestisce l'eliminazione di un contatto
+     * @param e
      */
     @FXML
     public void handleRimuoviContatto(ActionEvent e) {
@@ -139,8 +139,8 @@ public class RubricaController implements Initializable{
     }
 
     /**
-     * @param e
      * @brief Gestisce la ricerca dei contatti
+     * @param e
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
@@ -156,8 +156,8 @@ public class RubricaController implements Initializable{
     */
     
     /**
-     * @param e
      * @brief Gestisce il salvataggio della rubrica
+     * @param e
      */
     @FXML
     public void handleSalvataggio(ActionEvent e) {
@@ -178,8 +178,8 @@ public class RubricaController implements Initializable{
     }
 
     /**
-     * @param e
      * @brief Gestisce il caricamento della rubrica
+     * @param e
      */
     @FXML
     public void handleCaricamento(ActionEvent e) {
