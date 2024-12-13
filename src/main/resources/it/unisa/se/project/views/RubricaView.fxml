@@ -172,12 +172,12 @@
                                     </TextField>
                                     <HBox prefHeight="56.0" prefWidth="231.0">
                                        <children>
-                                          <Button fx:id="saveBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Salva">
+                                          <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleAggiungiContatto" prefHeight="30.0" prefWidth="80.0" text="Salva">
                                              <HBox.margin>
                                                 <Insets left="35.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Elimina">
+                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" onAction="#handleRimuoviContatto" prefHeight="30.0" prefWidth="80.0" text="Elimina">
                                              <HBox.margin>
                                                 <Insets left="18.0" />
                                              </HBox.margin>
