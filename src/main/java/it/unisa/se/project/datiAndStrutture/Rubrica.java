@@ -11,13 +11,13 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
-//import java.io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.IOException;
-//import java.scanner.Scanner;
+import java.util.Scanner;
 import java.util.Collections;
 import java.util.List;
-//import java.io.File;
-//import java.io.FileReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -92,7 +92,7 @@ public class Rubrica {
     public void salvaFile(String percorso) throws IOException {
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(percorso)))){
             final String SEPARATORE = ","; // Separatore tra i campi
-            pw.println("Nome,Cognome,Numero 1,Numero 2, Numero 3,Email 1, Email 2, Email 3");
+            pw.println("Cognome,Nome,Numero1,Numero2,Numero3,E-mail1,E-mail2,E-mail3");
             for (Contatto contatto : rubrica) {
                 // Nome
                 pw.append(contatto.getNome());
@@ -129,8 +129,8 @@ public class Rubrica {
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
      */
-    /*public void caricaFile(String percorso) throws IOException {
-        
+    public void caricaFile(String percorso) throws IOException {
+        /*
         try{
             File myfile = new File(percorso);
             String nomeFile=percorso.substring(percorso.lastIndexOf("\\")+1,percorso.length());
@@ -143,6 +143,6 @@ public class Rubrica {
         finally{
             buffread.close();
         }
-        
-    }*/
+        */
+    }
 }
