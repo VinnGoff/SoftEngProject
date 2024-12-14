@@ -37,34 +37,25 @@
                               <Insets left="80.0" top="8.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button fx:id="CercaButtonRubrica" mnemonicParsing="false" onAction="#handleRicerca" prefHeight="30.0" prefWidth="80.0" text="Cerca">
+                        <Button fx:id="CercaButtonRubrica" mnemonicParsing="false" onAction="#handleRicerca" prefHeight="35.0" prefWidth="85.0" text="Cerca">
                            <HBox.margin>
                               <Insets left="15.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <VBox prefHeight="200.0" prefWidth="150.0">
+                        <VBox alignment="CENTER" prefHeight="90.0" prefWidth="195.0">
                            <children>
-                              <Button fx:id="AprirubricaButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Apri rubrica">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin></Button>
-                              <Button fx:id="CaricamentoButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCaricamento" prefHeight="30.0" prefWidth="120.0" text="Carica rubrica" />
-                           </children>
-                           <HBox.margin>
-                              <Insets left="60.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="150.0">
-                           <children>
-                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSalvataggio" prefHeight="30.0" prefWidth="120.0" text="Salva su file">
+                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSalvataggio" prefHeight="35.0" prefWidth="120.0" text="Salva su file">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="AnnullaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Annulla" />
+                              <Button fx:id="CaricamentoButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCaricamento" prefHeight="35.0" prefWidth="120.0" text="Carica rubrica">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin></Button>
                            </children>
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="60.0" />
                            </HBox.margin>
                         </VBox>
                      </children>
@@ -173,7 +164,7 @@
                                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                                        <children>
                                           <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleAggiungiContatto" prefHeight="40.0" prefWidth="135.0" text="Salva contatto" />
-                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Modifica contatto" />
+                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleModificaContatto" prefHeight="40.0" prefWidth="135.0" text="Modifica contatto" />
                                           <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" onAction="#handleRimuoviContatto" prefHeight="40.0" prefWidth="135.0" text="Elimina contatto" />
                                        </children>
                                     </VBox>

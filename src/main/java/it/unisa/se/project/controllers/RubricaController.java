@@ -95,6 +95,12 @@ public class RubricaController implements Initializable{
     
     private final ObservableList<Contatto> contacts = FXCollections.observableArrayList();
     private final Rubrica rubrica = new Rubrica();    
+    
+    /**
+     * @brief Override del metodo initialize di Initializable
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setupTableColumns();
@@ -148,12 +154,11 @@ public class RubricaController implements Initializable{
     
     /**
      * @brief Gestisce l'aggiunta di un nuovo contatto
-     * @param e
      */
     @FXML
     public void handleAggiungiContatto() {
         if (!validateInputs()) {
-            showError("Errore", "Nome o cognome non possono essere vuoti");
+            mostraErrore("Errore", "Nome o cognome non possono essere vuoti");
             return;
         }
         
@@ -171,16 +176,15 @@ public class RubricaController implements Initializable{
             
             rubrica.aggiungiContatto(nuovoContatto);
             aggiornaTabella();
-            clearFields();
+            svuotaCampi();
             
         } catch (IllegalArgumentException e) {
-            showError("Errore", "Formato non valido per numero di telefono o email");
+            mostraErrore("Errore", "Formato non valido per numero di telefono o email");
         }
     }
 
     /**
      * @brief Gestisce la modifica di un contatto
-     * @param event 
      */
     @FXML
     public void handleModificaContatto() {
@@ -193,7 +197,6 @@ public class RubricaController implements Initializable{
 
     /**
      * @brief Gestisce l'eliminazione di un contatto
-     * @param e
      */
     @FXML
     public void handleRimuoviContatto() {
@@ -207,7 +210,7 @@ public class RubricaController implements Initializable{
                 if (response == ButtonType.OK) {
                     rubrica.rimuoviContatto(selected);
                     aggiornaTabella();
-                    clearFields();
+                    svuotaCampi();
                 }
             });
         }
@@ -215,7 +218,6 @@ public class RubricaController implements Initializable{
 
     /**
      * @brief Gestisce la ricerca dei contatti
-     * @param e
      */
     @FXML
     public void handleRicerca() {
@@ -225,7 +227,6 @@ public class RubricaController implements Initializable{
     
     /**
      * @brief Gestisce il salvataggio della rubrica
-     * @param e
      */
     @FXML
     public void handleSalvataggio() {
@@ -238,9 +239,9 @@ public class RubricaController implements Initializable{
         if (file != null) {
             try {
                 rubrica.salvaFile(file.getAbsolutePath());
-                showInfo("Successo", "Rubrica salvata correttamente");
+                mostraInfo("Successo", "Rubrica salvata correttamente");
             } catch (IOException e) {
-                showError("Errore", "Errore durante il salvataggio del file: " + e.getMessage());
+                mostraErrore("Errore", "Errore durante il salvataggio del file: " + e.getMessage());
                 Logger.getLogger(RubricaController.class.getName())
                       .log(Level.SEVERE, "Errore salvataggio file", e);
             }
@@ -249,7 +250,6 @@ public class RubricaController implements Initializable{
 
     /**
      * @brief Gestisce il caricamento della rubrica
-     * @param e
      */
     @FXML
     public void handleCaricamento() {
@@ -263,9 +263,9 @@ public class RubricaController implements Initializable{
             try {
                 rubrica.caricaFile(file.getAbsolutePath());
                 aggiornaTabella();
-                showInfo("Successo", "Rubrica caricata correttamente");
+                mostraInfo("Successo", "Rubrica caricata correttamente");
             } catch (IOException e) {
-                showError("Errore", "Errore durante il caricamento del file: " + e.getMessage());
+                mostraErrore("Errore", "Errore durante il caricamento del file: " + e.getMessage());
                 Logger.getLogger(RubricaController.class.getName())
                       .log(Level.SEVERE, "Errore caricamento file", e);
             }
@@ -281,7 +281,7 @@ public class RubricaController implements Initializable{
                !surnameField.getText().trim().isEmpty();
     }
     
-    private void clearFields() {
+    private void svuotaCampi() {
         nameField.clear();
         surnameField.clear();
         num1Field.clear();
@@ -307,7 +307,7 @@ public class RubricaController implements Initializable{
         mail3Field.setText(emails.size() > 2 ? emails.get(2).toString() : "");
     }
     
-    private void showError(String title, String message) {
+    private void mostraErrore(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -315,7 +315,7 @@ public class RubricaController implements Initializable{
         alert.showAndWait();
     }
     
-    private void showInfo(String title, String message) {
+    private void mostraInfo(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
