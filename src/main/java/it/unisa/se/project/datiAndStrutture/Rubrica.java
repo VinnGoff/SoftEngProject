@@ -49,15 +49,24 @@ public class Rubrica {
      * @param ricerca Stringa di ricerca
      * @return Lista dei contatti che soddisfano la ricerca
      */
-    public List<Contatto> ricercaContatto(String ricerca) {
-        List<Contatto> tempList = new ArrayList<>();
-        for (Contatto c : rubrica) {
-            if (c.getNome().toLowerCase().contains(ricerca.toLowerCase()) ||
-                c.getCognome().toLowerCase().contains(ricerca.toLowerCase())) {
-                tempList.add(c);
+    public List<Contatto> cercaContatto(String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return new ArrayList<>(contatti);
+        }
+
+        // Creiamo una nuova variabile finale con il valore processato
+        final String searchQuery = query.toLowerCase().trim();
+        List<Contatto> risultati = new ArrayList<>();
+
+        for (Contatto c : contatti) {
+            if (c.getNome().toLowerCase().contains(searchQuery) ||
+                c.getCognome().toLowerCase().contains(searchQuery) ||
+                c.getNumeriTel().stream().anyMatch(n -> n.toString().contains(searchQuery)) ||
+                c.getIndirizziEmail().stream().anyMatch(e -> e.toString().toLowerCase().contains(searchQuery))) {
+                risultati.add(c);
             }
         }
-        return tempList;
+        return risultati;
     }
 
     /**
