@@ -1,7 +1,7 @@
 /**
  * @file Contatto.java
  * @brief Rappresenta un contatto nella rubrica
- * 
+ * @package it.unisa.se.project.datiAndStrutture
  * Ogni contatto ha un nome, un cognome e può avere fino a tre numeri di telefono
  * e tre indirizzi email.
  * 
@@ -18,13 +18,24 @@ import java.util.ArrayList;
 /**
  *
  * @author vgoff
+ * @brief classe Contatto
+ * @implements Comparable<Contatto>
  */
 public class Contatto implements Comparable<Contatto>{
+    /**
+     * @private nome stringa del contatto
+     * @private cognome stringa del contatto
+     * @private numeriTel arraylist del numero di telefono
+     * @private indirizziEmail arraylist indirizzo email
+     */
     private String nome;
     private String cognome;
     private ArrayList<NumeroTel> numeriTel;
     private ArrayList<Email> indirizziEmail;
-    
+    /**
+     * @public Telefoni_max numero massimo di telefoni
+     * @public email_max numero massimo di email
+     */
     public static final int TELEFONI_MAX = 3;
     public static final int EMAIL_MAX = 3;
     
