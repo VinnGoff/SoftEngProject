@@ -7,6 +7,7 @@
  * 
  * @brief Gestisce una collezione di contatti
  * @invariant contatti != null
+ * @package it.unisa.se.project.datiAndStrutture
  */
 package it.unisa.se.project.datiAndStrutture;
 
