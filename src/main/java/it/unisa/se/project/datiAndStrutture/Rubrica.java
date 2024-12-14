@@ -46,7 +46,7 @@ public class Rubrica {
        
     /**
      * @brief Cerca contatti per nome o cognome
-     * @param ricerca Stringa di ricerca
+     * @param query Stringa di ricerca
      * @return Lista dei contatti che soddisfano la ricerca
      */
     public List<Contatto> cercaContatto(String query) {
