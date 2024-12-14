@@ -10,6 +10,7 @@ import it.unisa.se.project.datiAndStrutture.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -93,21 +94,55 @@ public class RubricaController implements Initializable{
     private ObservableList <Contatto> contacts;
     
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        contacts=FXCollections.observableArrayList();
+    public void initialize(URL url, ResourceBundle rb) {
+        setupTableColumns();
+        setupTableSelection();
         contattoTable.setItems(contacts);
+    }
+    
+    private void setupTableColumns() {
+        nameClm.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        surnameClm.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCognome()));
         
-        surnameClm.setCellValueFactory(c -> {return new SimpleStringProperty(c.getValue().getCognome());});
-        nameClm.setCellValueFactory(new PropertyValueFactory("name"));
-        num1Clm.setCellValueFactory(new PropertyValueFactory("num1"));
-        num2Clm.setCellValueFactory(new PropertyValueFactory("num2"));
-        num3Clm.setCellValueFactory(new PropertyValueFactory("num3"));
-        mail1Clm.setCellValueFactory(new PropertyValueFactory("mail1"));
-        mail2Clm.setCellValueFactory(new PropertyValueFactory("mail2"));
-        mail3Clm.setCellValueFactory(new PropertyValueFactory("mail3"));
+        num1Clm.setCellValueFactory(cellData -> {
+            List<NumeroTel> numeri = cellData.getValue().getNumeriTel();
+            return new SimpleStringProperty(!numeri.isEmpty() ? numeri.get(0).toString() : "");
+        });
         
+        num2Clm.setCellValueFactory(cellData -> {
+            List<NumeroTel> numeri = cellData.getValue().getNumeriTel();
+            return new SimpleStringProperty(numeri.size() > 1 ? numeri.get(1).toString() : "");
+        });
+        
+        num3Clm.setCellValueFactory(cellData -> {
+            List<NumeroTel> numeri = cellData.getValue().getNumeriTel();
+            return new SimpleStringProperty(numeri.size() > 2 ? numeri.get(2).toString() : "");
+        });
+        
+        mail1Clm.setCellValueFactory(cellData -> {
+            List<Email> emails = cellData.getValue().getIndirizziEmail();
+            return new SimpleStringProperty(!emails.isEmpty() ? emails.get(0).toString() : "");
+        });
+        
+        mail2Clm.setCellValueFactory(cellData -> {
+            List<Email> emails = cellData.getValue().getIndirizziEmail();
+            return new SimpleStringProperty(emails.size() > 1 ? emails.get(1).toString() : "");
+        });
+        
+        mail3Clm.setCellValueFactory(cellData -> {
+            List<Email> emails = cellData.getValue().getIndirizziEmail();
+            return new SimpleStringProperty(emails.size() > 2 ? emails.get(2).toString() : "");
+        });
+    }
+    
+    private void setupTableSelection() {
         contattoTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-    }   
+        contattoTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                popolaCampiContatto(newSelection);
+            }
+        });
+    }
     
     /**
      * @brief Gestisce l'aggiunta di un nuovo contatto
