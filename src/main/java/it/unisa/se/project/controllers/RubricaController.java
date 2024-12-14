@@ -61,7 +61,7 @@ public class RubricaController implements Initializable{
     @FXML
     private Button cercaBtnRubrica;
     @FXML
-    private Button aprirubricaBtnRubrica; 
+    private Button aprirubricaBtnRubrica;
     @FXML
     private Button caricamentoBtnRubrica;
     @FXML
