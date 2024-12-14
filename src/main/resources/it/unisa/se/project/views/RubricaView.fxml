@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RubricaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.project.controllers.RubricaController">
    <children>
       <SplitPane dividerPositions="0.12416107382550334" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -29,7 +29,7 @@
                               <Insets left="40.0" top="8.0" />
                            </HBox.margin>
                         </Text>
-                        <TextField fx:id="searchField" prefHeight="40.0" prefWidth="300.0" text="Inserisci nome o cognome">
+                        <TextField fx:id="searchField" prefHeight="40.0" prefWidth="300.0" promptText="Inserisci nome o cognome">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -37,26 +37,26 @@
                               <Insets left="80.0" top="8.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button fx:id="CercaButtonRubrica" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Cerca">
+                        <Button fx:id="CercaButtonRubrica" mnemonicParsing="false" onAction="#handleRicerca" prefHeight="30.0" prefWidth="80.0" text="Cerca">
                            <HBox.margin>
                               <Insets left="15.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="200.0" prefWidth="150.0">
                            <children>
                               <Button fx:id="AprirubricaButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Apri rubrica">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin></Button>
-                              <Button fx:id="CaricamentoButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Caricamento" />
+                              <Button fx:id="CaricamentoButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCaricamento" prefHeight="30.0" prefWidth="120.0" text="Carica rubrica" />
                            </children>
                            <HBox.margin>
                               <Insets left="60.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="200.0" prefWidth="150.0">
                            <children>
-                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Salvataggio">
+                              <Button fx:id="SalvataggioButtonRubrica" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSalvataggio" prefHeight="30.0" prefWidth="120.0" text="Salva su file">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
@@ -110,7 +110,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="Numero1">
+                                    <Label text="Numero 1">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -120,7 +120,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="Numero2">
+                                    <Label text="Numero 2">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -130,7 +130,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="Numero3">
+                                    <Label text="Numero 3">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -140,7 +140,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="E-mail1">
+                                    <Label text="E-mail 1">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -150,7 +150,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="E-mail2">
+                                    <Label text="E-mail 2">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -160,7 +160,7 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label text="E-mail3">
+                                    <Label text="E-mail 3">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
@@ -170,32 +170,13 @@
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <HBox prefHeight="56.0" prefWidth="231.0">
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                                        <children>
-                                          <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleAggiungiContatto" prefHeight="30.0" prefWidth="80.0" text="Salva">
-                                             <HBox.margin>
-                                                <Insets left="35.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" onAction="#handleRimuoviContatto" prefHeight="30.0" prefWidth="80.0" text="Elimina">
-                                             <HBox.margin>
-                                                <Insets left="18.0" />
-                                             </HBox.margin>
-                                          </Button>
+                                          <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleAggiungiContatto" prefHeight="40.0" prefWidth="135.0" text="Salva contatto" />
+                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Modifica contatto" />
+                                          <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" onAction="#handleRimuoviContatto" prefHeight="40.0" prefWidth="135.0" text="Elimina contatto" />
                                        </children>
-                                       <VBox.margin>
-                                          <Insets top="25.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <HBox prefHeight="59.0" prefWidth="231.0">
-                                       <children>
-                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Modifica">
-                                             <HBox.margin>
-                                                <Insets left="75.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                       </children>
-                                    </HBox>
+                                    </VBox>
                                  </children></VBox>
                            </children>
                         </AnchorPane>
@@ -205,12 +186,12 @@
                                 <columns>
                                   <TableColumn fx:id="surnameClm" prefWidth="90.0" text="Cognome" />
                                   <TableColumn fx:id="nameClm" prefWidth="90.0" text="Nome" />
-                                    <TableColumn fx:id="num1Clm" prefWidth="90.0" text="Numero1" />
-                                    <TableColumn fx:id="num2Clm" prefWidth="90.0" text="Numero2" />
-                                    <TableColumn fx:id="num3Clm" prefWidth="90.0" text="Numero3" />
-                                    <TableColumn fx:id="mail1Clm" prefWidth="90.0" text="E-mail1" />
-                                    <TableColumn fx:id="mail2Clm" prefWidth="90.0" text="E-mail2" />
-                                    <TableColumn fx:id="mail3Clm" prefWidth="90.0" text="E-mail3" />
+                                    <TableColumn fx:id="num1Clm" prefWidth="90.0" text="Numero 1" />
+                                    <TableColumn fx:id="num2Clm" prefWidth="90.0" text="Numero 2" />
+                                    <TableColumn fx:id="num3Clm" prefWidth="90.0" text="Numero 3" />
+                                    <TableColumn fx:id="mail1Clm" prefWidth="90.0" text="E-mail 1" />
+                                    <TableColumn fx:id="mail2Clm" prefWidth="90.0" text="E-mail 2" />
+                                    <TableColumn fx:id="mail3Clm" prefWidth="90.0" text="E-mail 3" />
                                 </columns>
                               </TableView>
                            </children></AnchorPane>

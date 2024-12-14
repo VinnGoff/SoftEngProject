@@ -8,8 +8,11 @@ package it.unisa.se.project.controllers;
 
 import it.unisa.se.project.datiAndStrutture.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -107,8 +110,8 @@ public class RubricaController implements Initializable{
     }   
     
     /**
-     * @param e
      * @brief Gestisce l'aggiunta di un nuovo contatto
+     * @param e
      */
     @FXML
     public void handleAggiungiContatto(ActionEvent e) {
@@ -116,28 +119,28 @@ public class RubricaController implements Initializable{
     }
 
     /**
-     * @param e
      * @brief Gestisce la modifica di un contatto
+     * @param event 
      */
     @FXML
     public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
-       Contatto selectedrow=contattoTable.getSelectionModel().getSelectedItem();
-       //s.setName(event.getNewValue());
+       Contatto selectedrow = contattoTable.getSelectionModel().getSelectedItem();
+       selectedrow.setNome(event.getNewValue());
     }
 
     /**
-     * @param e
      * @brief Gestisce l'eliminazione di un contatto
+     * @param e
      */
     @FXML
     public void handleRimuoviContatto(ActionEvent e) {
-        Contatto selected=contattoTable.getSelectionModel().getSelectedItem();
+        Contatto selected = contattoTable.getSelectionModel().getSelectedItem();
         contacts.remove(selected);
     }
 
     /**
-     * @param e
      * @brief Gestisce la ricerca dei contatti
+     * @param e
      */
     @FXML
     public void handleRicerca(ActionEvent e) {
@@ -153,43 +156,46 @@ public class RubricaController implements Initializable{
     */
     
     /**
-     * @param e
      * @brief Gestisce il salvataggio della rubrica
+     * @param e
      */
     @FXML
     public void handleSalvataggio(ActionEvent e) {
-        /*
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Export Contacts");
+        fileChooser.setTitle("Esporta Contatti");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File selectedFile = fileChooser.showSaveDialog(null);
 
         if (selectedFile != null) {
-            rubric.(selectedFile.getAbsolutePath());
-            System.out.println("Contacts exported successfully.");
-        }
-        */
+            Rubrica rubrica = new Rubrica();
+            try {
+                rubrica.salvaFile(selectedFile.getAbsolutePath());
+            } catch (IOException ex) {
+                System.err.println("Errori nel salvataggio del file!");
+            }
+            System.out.println("Contatti esportati correttamente.");
+        }
     }
 
     /**
-     * @param e
      * @brief Gestisce il caricamento della rubrica
+     * @param e
      */
     @FXML
     public void handleCaricamento(ActionEvent e) {
-        /*
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Importa contatti");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
-            Rubrica importedRubric = rubric.importContacts(file.getAbsolutePath());
-            
-            if (importedRubric != null) {
-                rubric.getContacts().addAll(importedRubric.getContacts());
-                contattoTable.refresh();
-            } 
-        }
-        */
+            Rubrica rubricaImport = new Rubrica();
+            try {
+                rubricaImport.caricaFile(file.getAbsolutePath());
+            } catch (IOException ex) {
+                System.err.println("Errore nel caricamento del file.");
+            }
+            contattoTable.refresh();
+        }
     }
 }
