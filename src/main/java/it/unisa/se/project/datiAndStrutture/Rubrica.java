@@ -11,15 +11,17 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
+import java.io.*;
+import java.util.*;
 
 public class Rubrica {
-    private ArrayList<Contatto> rubrica;
+    private List<Contatto> contatti;
     
     /**
      * @brief Costruttore della rubrica
      */
     public Rubrica() {
-        rubrica = new ArrayList<>();
+        this.contatti = new ArrayList<>();
     }
     
     /**
@@ -27,7 +29,11 @@ public class Rubrica {
      * @param contatto Il contatto da aggiungere
      */
     public void aggiungiContatto(Contatto contatto) {
-        rubrica.add(contatto);
+        if (contatto == null) {
+            throw new IllegalArgumentException("Il contatto non può essere null");
+        }
+        contatti.add(contatto);
+        Collections.sort(contatti); // Mantiene la lista ordinata
     }
 
     /**
