@@ -59,7 +59,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleAggiungiContatto metodo di class RubricaController.
+     * @test testHandleAggiungiContatto per handleAggiungiContatto di RubricaController.
      */
     @Test
     public void testHandleAggiungiContatto() {
@@ -71,7 +71,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleModificaContatto di class RubricaController.
+     * @test testHandleModificaContatto per handleModificaContatto di RubricaController.
      */
     @Test
     public void testHandleModificaContatto() {
@@ -83,7 +83,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleRimuoviContatto di class RubricaController.
+     * @test testHandleRimuoviContatto per handleRimuoviContatto di RubricaController.
      */
     @Test
     public void testHandleRimuoviContatto() {
@@ -95,7 +95,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleRicerca metodo di class RubricaController.
+     * @test testHandleRicerca per handleRicerca di RubricaController.
      */
     @Test
     public void testHandleRicerca() {
@@ -107,7 +107,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleSalvataggio metodo di class RubricaController.
+     * @test testHandleSalvataggio per handleSalvataggio di RubricaController.
      */
     @Test
     public void testHandleSalvataggio() {
@@ -119,7 +119,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * @test testHandleCaricamento metodo di class RubricaController.
+     * @test testHandleCaricamento per handleCaricamento di RubricaController.
      */
     @Test
     public void testHandleCaricamento() {
