@@ -2,6 +2,9 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * @file RubricaControllerTest.java
+ * @brief test per rubricacontroller
+ * @package it.unisa.se.project.controllers
  */
 package it.unisa.se.project.controllers;
 
@@ -17,7 +20,9 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author vgoff
- */
+ * @brief classe RubricaControllerTest per testare rubrica
+ * @test RubricaControllerTest
+ */ 
 public class RubricaControllerTest {
     
     public RubricaControllerTest() {
@@ -40,7 +45,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of initialize method, of class RubricaController.
+     * @test testInitialize di class RubricaController.
      */
     @Test
     public void testInitialize() {
@@ -54,7 +59,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleAggiungiContatto method, of class RubricaController.
+     * @test testHandleAggiungiContatto metodo di class RubricaController.
      */
     @Test
     public void testHandleAggiungiContatto() {
@@ -66,7 +71,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleModificaContatto method, of class RubricaController.
+     * @test testHandleModificaContatto di class RubricaController.
      */
     @Test
     public void testHandleModificaContatto() {
@@ -78,7 +83,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleRimuoviContatto method, of class RubricaController.
+     * @test testHandleRimuoviContatto di class RubricaController.
      */
     @Test
     public void testHandleRimuoviContatto() {
@@ -90,7 +95,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleRicerca method, of class RubricaController.
+     * @test testHandleRicerca metodo di class RubricaController.
      */
     @Test
     public void testHandleRicerca() {
@@ -102,7 +107,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleSalvataggio method, of class RubricaController.
+     * @test testHandleSalvataggio metodo di class RubricaController.
      */
     @Test
     public void testHandleSalvataggio() {
@@ -114,7 +119,7 @@ public class RubricaControllerTest {
     }
 
     /**
-     * Test of handleCaricamento method, of class RubricaController.
+     * @test testHandleCaricamento metodo di class RubricaController.
      */
     @Test
     public void testHandleCaricamento() {
