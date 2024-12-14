@@ -12,7 +12,6 @@ public class Email {
     /**
      * @brief Costruisce un nuovo indirizzo email
      * @param indirizzo L'indirizzo email
-     * @throws IllegalArgumentException se l'indirizzo non è valido
      */
     public Email(String indirizzo) {
         this.indirizzo = indirizzo;
