@@ -131,47 +131,55 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void caricaFile(String percorso) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(percorso))) {
+        contatti.clear(); // Pulisce la lista prima di caricare nuovi contatti
+        try (BufferedReader reader = new BufferedReader(new FileReader(percorso))) {
             String line;
-            boolean firstLine = true;
+            while ((line = reader.readLine()) != null) {
+                try {
+                    String[] parts = line.split(",");
 
-            while ((line = br.readLine()) != null) {
-                if (firstLine) {
-                    // Salta la riga di intestazione
-                    firstLine = false;
-                    continue;
-                }
+                    // Parsing dei campi con gestione dei valori opzionali
+                    String nome = parts.length > 0 ? parts[0].trim() : "";
+                    String cognome = parts.length > 1 ? parts[1].trim() : "";
 
-                String[] fields = line.split(",");
-                if (fields.length < 7) {
-                    throw new IOException("Formato file CSV non valido");
-                }
+                    // Gestione numeri di telefono
+                    NumeroTel num1 = (parts.length > 2 && !parts[2].trim().isEmpty()) ? new NumeroTel(parts[2].trim()) : null;
+                    NumeroTel num2 = (parts.length > 3 && !parts[3].trim().isEmpty()) ? new NumeroTel(parts[3].trim()) : null;
+                    NumeroTel num3 = (parts.length > 4 && !parts[4].trim().isEmpty()) ? new NumeroTel(parts[4].trim()) : null;
 
-                String cognome = fields[0];
-                String nome = fields[1];
-                List<NumeroTel> numeriTel = new ArrayList<>();
-                List<Email> indirizziEmail = new ArrayList<>();
+                    // Gestione email
+                    Email mail1 = (parts.length > 5 && !parts[5].trim().isEmpty()) ? new Email(parts[5].trim()) : null;
+                    Email mail2 = (parts.length > 6 && !parts[6].trim().isEmpty()) ? new Email(parts[6].trim()) : null;
+                    Email mail3 = (parts.length > 7 && !parts[7].trim().isEmpty()) ? new Email(parts[7].trim()) : null;
 
-                // Leggi i numeri di telefono
-                for (int i = 2; i < 5; i++) {
-                    if (!fields[i].isEmpty()) {
-                        numeriTel.add(new NumeroTel(fields[i]));
+                    // Se non ci sono numeri e email, li imposteremo come oggetti vuoti
+                    // per il costruttore che richiede comunque tre numeri e tre email
+                    if (num1 == null) num1 = new NumeroTel(""); // Placeholder vuoto
+                    if (num2 == null) num2 = new NumeroTel(""); // Placeholder vuoto
+                    if (num3 == null) num3 = new NumeroTel(""); // Placeholder vuoto
+
+                    if (mail1 == null) mail1 = new Email(""); // Placeholder vuoto
+                    if (mail2 == null) mail2 = new Email(""); // Placeholder vuoto
+                    if (mail3 == null) mail3 = new Email(""); // Placeholder vuoto
+
+                    // Crea il contatto solo se almeno nome o cognome sono valorizzati
+                    if (!nome.isEmpty() || !cognome.isEmpty() || num1 != null || mail1 != null) {
+                        Contatto nuovoContatto = new Contatto(nome, cognome, num1, num2, num3, mail1, mail2, mail3);
+                        contatti.add(nuovoContatto);
+                    } else {
+                        System.err.println("Contatto ignorato: tutti i campi sono vuoti.");
                     }
-                }
 
-                // Leggi gli indirizzi email
-                for (int i = 5; i < fields.length; i++) {
-                    if (!fields[i].isEmpty()) {
-                        indirizziEmail.add(new Email(fields[i]));
-                    }
+                } catch (Exception e) {
+                    System.err.println("Errore durante il parsing della riga: " + line);
+                    System.err.println("Dettaglio: " + e.getMessage());
                 }
-
-                Contatto contatto = new Contatto(nome, cognome, numeriTel.get(0), numeriTel.get(1), numeriTel.get(2), indirizziEmail.get(0), indirizziEmail.get(1), indirizziEmail.get(2));
-                rubrica.add(contatto);
             }
-        } catch (IOException ex) {
-            System.err.println("Errore durante la lettura del file: " + ex.getMessage());
-            throw ex;
         }
+        Collections.sort(contatti); // Mantiene la lista ordinata
+    }
+    
+    public List<Contatto> getContatti() {
+        return new ArrayList<>(contatti);
     }
 }
