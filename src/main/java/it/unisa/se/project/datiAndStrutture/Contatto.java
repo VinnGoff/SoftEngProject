@@ -4,6 +4,10 @@
  * 
  * Ogni contatto ha un nome, un cognome e può avere fino a tre numeri di telefono
  * e tre indirizzi email.
+ * 
+ * @invariant numeriTel.size() <= TELEFONI_MAX
+ * @invariant indirizziEmail.size() <= EMAIL_MAX
+ * @invariant nome != null && cognome != null
  */
 package it.unisa.se.project.datiAndStrutture;
 
@@ -34,7 +38,9 @@ public class Contatto implements Comparable<Contatto>{
      * @param mail1 Il primo indirizzo e-mail
      * @param mail2 Il secondo indirizzo e-mail
      * @param mail3 Il terzo indirizzo e-mail
-     * @throws IllegalArgumentException se entrambi firstName e lastName sono vuoti
+     * @pre nome != null && cognome != null
+     * @post getNumeriTel().size() <= TELEFONI_MAX
+     * @post getIndirizziEmail().size() <= EMAIL_MAX
      */
     public Contatto(String nome, String cognome, NumeroTel num1, NumeroTel num2, NumeroTel num3, Email mail1, Email mail2, Email mail3){
         this.nome = nome;
@@ -88,6 +94,7 @@ public class Contatto implements Comparable<Contatto>{
     /**
      * @brief Restituisce la lista dei numeri di telefono
      * @return Lista dei numeri di telefono
+     * @post result.size() <= TELEFONI_MAX
      */
     public ArrayList<NumeroTel> getNumeriTel() {
         return new ArrayList<>(numeriTel);
@@ -96,6 +103,7 @@ public class Contatto implements Comparable<Contatto>{
     /**
      * @brief Restituisce la lista degli indirizzi email
      * @return Lista degli indirizzi email
+     * @post result.size() <= EMAIL_MAX
      */
     public ArrayList<Email> getIndirizziEmail() {
         return new ArrayList<>(indirizziEmail);
@@ -114,6 +122,8 @@ public class Contatto implements Comparable<Contatto>{
      * @brief Confronta due contatti per l'ordinamento
      * @param c Il contatto da confrontare
      * @return negativo se this < c, 0 se uguali, positivo se this > other
+     * @pre c != null
+     * @post result == 0 implies (this.cognome.equalsIgnoreCase(c.cognome) && this.nome.equalsIgnoreCase(c.nome))
      */
     @Override
     public int compareTo(Contatto c) {
