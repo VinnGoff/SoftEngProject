@@ -91,37 +91,26 @@ public class Rubrica {
      */
     
     public void salvaFile(String percorso) throws IOException {
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(percorso)))){
-            final String SEPARATORE = ","; // Separatore tra i campi
-            pw.println("Cognome,Nome,Numero1,Numero2,Numero3,E-mail1,E-mail2,E-mail3");
-            for (Contatto contatto : rubrica) {
-                // Nome
-                pw.append(contatto.getNome());
-                pw.append(SEPARATORE);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(percorso))) {
+            for (Contatto c : contatti) {
+                // Formato CSV: nome,cognome,tel1,tel2,tel3,email1,email2,email3
+                writer.write(String.format("%s,%s,", c.getNome(), c.getCognome()));
                 
-                // Cognome
-                pw.append(contatto.getCognome());
-                pw.append(SEPARATORE);
+                // Scrivi numeri di telefono
+                List<NumeroTel> numeri = c.getNumeriTel();
+                for (int i = 0; i < Contatto.TELEFONI_MAX; i++) {
+                    writer.write(i < numeri.size() ? numeri.get(i).toString() : "");
+                    writer.write(",");
+                }
                 
-                // Numeri di telefono
-                for (NumeroTel numeroTel : contatto.getNumeriTel()) {
-                    pw.append(numeroTel.toString());
-                    pw.append(SEPARATORE);
+                // Scrivi email
+                List<Email> emails = c.getIndirizziEmail();
+                for (int i = 0; i < Contatto.EMAIL_MAX; i++) {
+                    writer.write(i < emails.size() ? emails.get(i).toString() : "");
+                    if (i < Contatto.EMAIL_MAX - 1) writer.write(",");
                 }
-
-                // Indirizzi email
-                Iterator<Email> emailIterator = contatto.getIndirizziEmail().iterator();
-                while (emailIterator.hasNext()) {
-                    Email email = emailIterator.next();
-                    pw.append(email.toString());
-                    if (emailIterator.hasNext()) {
-                        pw.append(SEPARATORE);
-                    }
-                }
-                pw.append("\n");
+                writer.newLine();
             }
-        } catch (IOException ex) {
-            System.err.println("Errore durante la scrittura del file: " + ex.getMessage());
         }
     }
 
