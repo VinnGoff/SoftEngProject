@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.project.controllers.RubricaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.project.controllers.RubricaController">
    <children>
       <SplitPane dividerPositions="0.12416107382550334" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -173,7 +173,7 @@
                                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                                        <children>
                                           <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleAggiungiContatto" prefHeight="40.0" prefWidth="135.0" text="Salva contatto" />
-                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Modifica contatto" />
+                                          <Button fx:id="ModificaButtonContatto" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleModificaContatto" prefHeight="40.0" prefWidth="135.0" text="Modifica contatto" />
                                           <Button fx:id="EliminaButtonContatto" mnemonicParsing="false" onAction="#handleRimuoviContatto" prefHeight="40.0" prefWidth="135.0" text="Elimina contatto" />
                                        </children>
                                     </VBox>
