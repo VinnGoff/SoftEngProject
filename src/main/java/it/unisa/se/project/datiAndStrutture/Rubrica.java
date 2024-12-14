@@ -85,18 +85,18 @@ public class Rubrica {
     
     public void salvaFile(String percorso) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(percorso))) {
+            writer.write("Nome,Cognome,Telefono1,Telefono2,Telefono3,Email1,Email2,Email3");
+            writer.newLine();
+
             for (Contatto c : contatti) {
-                // Formato CSV: nome,cognome,tel1,tel2,tel3,email1,email2,email3
                 writer.write(String.format("%s,%s,", c.getNome(), c.getCognome()));
-                
-                // Scrivi numeri di telefono
+            
                 List<NumeroTel> numeri = c.getNumeriTel();
                 for (int i = 0; i < Contatto.TELEFONI_MAX; i++) {
                     writer.write(i < numeri.size() ? numeri.get(i).toString() : "");
                     writer.write(",");
                 }
-                
-                // Scrivi email
+            
                 List<Email> emails = c.getIndirizziEmail();
                 for (int i = 0; i < Contatto.EMAIL_MAX; i++) {
                     writer.write(i < emails.size() ? emails.get(i).toString() : "");
@@ -113,39 +113,37 @@ public class Rubrica {
      * @throws IOException in caso di errori di I/O
      */
     public void caricaFile(String percorso) throws IOException {
-        contatti.clear(); // Pulisce la lista prima di caricare nuovi contatti
+        contatti.clear();
+    
         try (BufferedReader reader = new BufferedReader(new FileReader(percorso))) {
             String line;
+
+            reader.readLine();
+
             while ((line = reader.readLine()) != null) {
                 try {
                     String[] parts = line.split(",");
 
-                    // Parsing dei campi con gestione dei valori opzionali
                     String nome = parts.length > 0 ? parts[0].trim() : "";
                     String cognome = parts.length > 1 ? parts[1].trim() : "";
 
-                    // Gestione numeri di telefono
                     NumeroTel num1 = (parts.length > 2 && !parts[2].trim().isEmpty()) ? new NumeroTel(parts[2].trim()) : null;
                     NumeroTel num2 = (parts.length > 3 && !parts[3].trim().isEmpty()) ? new NumeroTel(parts[3].trim()) : null;
                     NumeroTel num3 = (parts.length > 4 && !parts[4].trim().isEmpty()) ? new NumeroTel(parts[4].trim()) : null;
 
-                    // Gestione email
                     Email mail1 = (parts.length > 5 && !parts[5].trim().isEmpty()) ? new Email(parts[5].trim()) : null;
                     Email mail2 = (parts.length > 6 && !parts[6].trim().isEmpty()) ? new Email(parts[6].trim()) : null;
                     Email mail3 = (parts.length > 7 && !parts[7].trim().isEmpty()) ? new Email(parts[7].trim()) : null;
 
-                    // Se non ci sono numeri e email, li imposteremo come oggetti vuoti
-                    // per il costruttore che richiede comunque tre numeri e tre email
-                    if (num1 == null) num1 = new NumeroTel(""); // Placeholder vuoto
-                    if (num2 == null) num2 = new NumeroTel(""); // Placeholder vuoto
-                    if (num3 == null) num3 = new NumeroTel(""); // Placeholder vuoto
+                    if (num1 == null) num1 = new NumeroTel("");
+                    if (num2 == null) num2 = new NumeroTel("");
+                    if (num3 == null) num3 = new NumeroTel("");
 
-                    if (mail1 == null) mail1 = new Email(""); // Placeholder vuoto
-                    if (mail2 == null) mail2 = new Email(""); // Placeholder vuoto
-                    if (mail3 == null) mail3 = new Email(""); // Placeholder vuoto
+                    if (mail1 == null) mail1 = new Email(""); 
+                    if (mail2 == null) mail2 = new Email("");
+                    if (mail3 == null) mail3 = new Email("");
 
-                    // Crea il contatto solo se almeno nome o cognome sono valorizzati
-                    if (!nome.isEmpty() || !cognome.isEmpty() || num1 != null || mail1 != null) {
+                    if (!nome.isEmpty() || !cognome.isEmpty()) {
                         Contatto nuovoContatto = new Contatto(nome, cognome, num1, num2, num3, mail1, mail2, mail3);
                         contatti.add(nuovoContatto);
                     } else {

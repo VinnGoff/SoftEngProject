@@ -95,6 +95,7 @@ public class RubricaController implements Initializable{
     
     private final ObservableList<Contatto> contacts = FXCollections.observableArrayList();
     private final Rubrica rubrica = new Rubrica();    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setupTableColumns();
