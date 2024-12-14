@@ -4,6 +4,9 @@
  * 
  * Fornisce operazioni per aggiungere, rimuovere, cercare contatti
  * e salvare/caricare la rubrica da file
+ * 
+ * @brief Gestisce una collezione di contatti
+ * @invariant contatti != null
  */
 package it.unisa.se.project.datiAndStrutture;
 
@@ -29,6 +32,8 @@ public class Rubrica {
     /**
      * @brief Aggiunge un nuovo contatto
      * @param contatto Il contatto da aggiungere
+     * @pre contatto != null
+     * @post contatti.contains(contatto)
      */
     public void aggiungiContatto(Contatto contatto) {
         if (contatto == null) {
@@ -41,6 +46,8 @@ public class Rubrica {
     /**
      * @brief Rimuove un contatto
      * @param contatto Il contatto da rimuovere
+     * @pre contatto != null
+     * @post !contatti.contains(contatto)
      */
         public void rimuoviContatto(Contatto contatto) {
         contatti.remove(contatto);
@@ -50,6 +57,8 @@ public class Rubrica {
      * @brief Cerca contatti per nome o cognome
      * @param query Stringa di ricerca
      * @return Lista dei contatti che soddisfano la ricerca
+     * @pre query != null
+     * @post result != null
      */
     public List<Contatto> cercaContatto(String query) {
         if (query == null || query.trim().isEmpty()) {
@@ -82,6 +91,7 @@ public class Rubrica {
      * @brief Salva la rubrica su file
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
+     * @pre percorso != null && !percorso.isEmpty()
      */
     
     public void salvaFile(String percorso) throws IOException {
@@ -112,6 +122,8 @@ public class Rubrica {
      * @brief Carica la rubrica da file
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
+     * @pre percorso != null && !percorso.isEmpty()
+     * @post contatti != null
      */
     public void caricaFile(String percorso) throws IOException {
         contatti.clear();

@@ -93,58 +93,6 @@ public class ContattoTest {
     }
 
     /**
-     * Test of aggiungiNumeroTel method, of class Contatto.
-     */
-    @Test
-    public void testAggiungiNumeroTel() {
-        System.out.println("aggiungiNumeroTel");
-        NumeroTel numero = null;
-        Contatto instance = null;
-        instance.aggiungiNumeroTel(numero);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of aggiungiEmail method, of class Contatto.
-     */
-    @Test
-    public void testAggiungiEmail() {
-        System.out.println("aggiungiEmail");
-        Email email = null;
-        Contatto instance = null;
-        instance.aggiungiEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of rimuoviNumeroTel method, of class Contatto.
-     */
-    @Test
-    public void testRimuoviNumeroTel() {
-        System.out.println("rimuoviNumeroTel");
-        NumeroTel numero = null;
-        Contatto instance = null;
-        instance.rimuoviNumeroTel(numero);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of rimuoviEmail method, of class Contatto.
-     */
-    @Test
-    public void testRimuoviEmail() {
-        System.out.println("rimuoviEmail");
-        Email email = null;
-        Contatto instance = null;
-        instance.rimuoviEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getNumeriTel method, of class Contatto.
      */
     @Test
