@@ -86,49 +86,6 @@ public class Contatto implements Comparable<Contatto>{
     }
     
     /**
-     * @brief Aggiunge un numero di telefono al contatto
-     * @param numero Numero di telefono da aggiungere
-     * @throws IllegalStateException se il contatto ha già tre numeri
-     */
-    public void aggiungiNumeroTel(NumeroTel numero) {
-        if (numeriTel.size() < TELEFONI_MAX) {
-            numeriTel.add(numero);
-        }
-    }
-    
-    /**
-     * @brief Aggiunge un indirizzo email al contatto
-     * @param email Email da aggiungere
-     * @throws IllegalStateException se il contatto ha già tre email
-     */
-    public void aggiungiEmail(Email email) {
-        if (indirizziEmail.size() < EMAIL_MAX) {
-            indirizziEmail.add(email);
-        }
-    }
-    
-    /**
-     * @brief Rimuove un numero di telefono
-     * @param numero Numero da rimuovere
-     */
-    public void rimuoviNumeroTel(NumeroTel numero) {
-        if (!numeriTel.isEmpty()) {
-            numeriTel.remove(numero);
-        }
-    }
-    
-    /**
-     * @brief Rimuove un indirizzo email
-     * @param email Email da rimuovere
-     */
-
-    public void rimuoviEmail(Email email) {
-        if (!indirizziEmail.isEmpty()) {
-            indirizziEmail.remove(email);
-        }
-    }
-    
-    /**
      * @brief Restituisce la lista dei numeri di telefono
      * @return Lista dei numeri di telefono
      */
