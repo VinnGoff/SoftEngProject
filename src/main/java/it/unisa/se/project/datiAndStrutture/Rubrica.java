@@ -179,6 +179,10 @@ public class Rubrica {
         Collections.sort(contatti); // Mantiene la lista ordinata
     }
     
+    /**
+     * @brief Metodo che consente di avere tutti i contatti che ci sono in rubrica
+     * @return ArrayList della rubrica 
+     */
     public List<Contatto> getContatti() {
         return new ArrayList<>(contatti);
     }
