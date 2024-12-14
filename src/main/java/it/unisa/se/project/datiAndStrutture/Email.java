@@ -40,6 +40,6 @@ public class Email {
 
     @Override
     public String toString() {
-        return "Indirizzo mail: "+indirizzo;
+        return indirizzo;
     }
 }
