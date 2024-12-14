@@ -33,7 +33,7 @@ public class Rubrica {
             throw new IllegalArgumentException("Il contatto non può essere null");
         }
         contatti.add(contatto);
-        Collections.sort(contatti); // Mantiene la lista ordinata
+        Collections.sort(contatti);
     }
 
     /**
@@ -156,7 +156,7 @@ public class Rubrica {
                 }
             }
         }
-        Collections.sort(contatti); // Mantiene la lista ordinata
+        Collections.sort(contatti);
     }
     
     /**
