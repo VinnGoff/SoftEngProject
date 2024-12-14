@@ -1,6 +1,7 @@
 /**
  * @file NumeroTel.java
  * @brief Rappresenta un numero di telefono
+ * @package it.unisa.se.project.datiAndStrutture
  * 
  * Gestisce la validazione e formattazione dei numeri di telefono
  */
@@ -8,9 +9,14 @@ package it.unisa.se.project.datiAndStrutture;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * @brief classe NumeroTel con i metodi
+ */
 
 public class NumeroTel {
+    /**
+     * @private stringa numero 
+     */
     private String numero;
 
     /**
@@ -24,6 +30,7 @@ public class NumeroTel {
 
     /**
      * @brief Valida il formato del numero
+     * @pre numero !=null
      * @return true se il formato è valido
      */
     public boolean valido() {
@@ -38,7 +45,10 @@ public class NumeroTel {
         
         return matcher.matches();
     }
-
+   /**
+     * @brief toString NumeroTel
+     * @return numero di telefono
+     */
     @Override
     public String toString() {
         return numero;
