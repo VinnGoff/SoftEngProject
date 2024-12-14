@@ -1,7 +1,7 @@
 /**
  * @file Main.java
  * @brief Main class del progetto che lancia l'applicazione con la sua componente grafica
- * 
+ * @package it.unisa.se.project.datiAndStrutture
  */
 package it.unisa.se.project.datiAndStrutture;
 
@@ -14,9 +14,14 @@ import javafx.stage.Stage;
 /**
  *
  * @author vgoff
+ * @brief classe Main
+ * @extends Application
  */
 public class Main extends Application{
-    
+    /**
+     * @brief load resource as parent root + set scene
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/it/unisa/se/project/views/RubricaView.fxml"));
