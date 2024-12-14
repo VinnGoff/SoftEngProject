@@ -11,6 +11,18 @@ package it.unisa.se.project.datiAndStrutture;
  *
  * @author vgoff
  */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.List;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.PrintWriter;
+import java.util.Iterator;
 
 public class Rubrica {
     private ArrayList<Contatto> rubrica;
