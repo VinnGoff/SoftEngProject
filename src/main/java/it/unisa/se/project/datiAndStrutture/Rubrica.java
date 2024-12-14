@@ -13,7 +13,9 @@ package it.unisa.se.project.datiAndStrutture;
  */
 import java.io.*;
 import java.util.*;
-
+ /**
+  * @brief classe Rubrica con i metodi di rubrica
+  */
 public class Rubrica {
     private List<Contatto> contatti;
     
@@ -53,8 +55,7 @@ public class Rubrica {
         if (query == null || query.trim().isEmpty()) {
             return new ArrayList<>(contatti);
         }
-
-        // Creiamo una nuova variabile finale con il valore processato
+         
         final String searchQuery = query.toLowerCase().trim();
         List<Contatto> risultati = new ArrayList<>();
 
