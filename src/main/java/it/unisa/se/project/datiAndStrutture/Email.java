@@ -22,22 +22,6 @@ public class Email {
         this.indirizzo = indirizzo;
     }
 
-    /**
-     * @brief Valida il formato dell'indirizzo
-     * @return true se il formato è valido
-     */
-    public boolean valido() {
-        if(indirizzo==null || indirizzo.isEmpty())
-            return false;
-        
-        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";    //Questa regex fa si che la mail non sia valida se non presenta -@- , -.- e il TLD finale da almeno 2 caratteri
-        
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(indirizzo);
-        
-        return matcher.matches();
-    }
-
     @Override
     public String toString() {
         return indirizzo;
