@@ -27,6 +27,8 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
@@ -149,8 +151,31 @@ public class RubricaController implements Initializable{
      * @param e
      */
     @FXML
-    public void handleAggiungiContatto(ActionEvent e) {
-        contacts.add(new Contatto(nameField.getText(), surnameField.getText(), new NumeroTel(num1Field.getText()), new NumeroTel(num2Field.getText()), new NumeroTel(num3Field.getText()), new Email(mail1Field.getText()), new Email(mail2Field.getText()), new Email(mail3Field.getText()))); 
+    public void handleAggiungiContatto() {
+        if (!validateInputs()) {
+            showError("Errore", "Nome o cognome non possono essere vuoti");
+            return;
+        }
+        
+        try {
+            Contatto nuovoContatto = new Contatto(
+                nameField.getText().trim(),
+                surnameField.getText().trim(),
+                new NumeroTel(num1Field.getText().trim()),
+                new NumeroTel(num2Field.getText().trim()),
+                new NumeroTel(num3Field.getText().trim()),
+                new Email(mail1Field.getText().trim()),
+                new Email(mail2Field.getText().trim()),
+                new Email(mail3Field.getText().trim())
+            );
+            
+            rubrica.aggiungiContatto(nuovoContatto);
+            aggiornaTabella();
+            clearFields();
+            
+        } catch (IllegalArgumentException e) {
+            showError("Errore", "Formato non valido per numero di telefono o email");
+        }
     }
 
     /**
@@ -158,9 +183,12 @@ public class RubricaController implements Initializable{
      * @param event 
      */
     @FXML
-    public void handleModificaContatto(TableColumn.CellEditEvent<Contatto, String> event) {
-       Contatto selectedrow = contattoTable.getSelectionModel().getSelectedItem();
-       selectedrow.setNome(event.getNewValue());
+    public void handleModificaContatto() {
+        Contatto selected = contattoTable.getSelectionModel().getSelectedItem();
+        if (selected != null && validateInputs()) {
+            rubrica.rimuoviContatto(selected);
+            handleAggiungiContatto();
+        }
     }
 
     /**
@@ -168,9 +196,21 @@ public class RubricaController implements Initializable{
      * @param e
      */
     @FXML
-    public void handleRimuoviContatto(ActionEvent e) {
-        Contatto selected = contattoTable.getSelectionModel().getSelectedItem();
-        contacts.remove(selected);
+    public void handleRimuoviContatto() {
+        final Contatto selected = contattoTable.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Conferma eliminazione");
+            alert.setContentText("Sei sicuro di voler eliminare questo contatto?");
+            
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    rubrica.rimuoviContatto(selected);
+                    aggiornaTabella();
+                    clearFields();
+                }
+            });
+        }
     }
 
     /**
@@ -178,37 +218,32 @@ public class RubricaController implements Initializable{
      * @param e
      */
     @FXML
-    public void handleRicerca(ActionEvent e) {
-        //completare
-        contattoTable.getSortOrder().addAll(surnameClm, nameClm);
+    public void handleRicerca() {
+        String query = searchField.getText();
+        contacts.setAll(rubrica.cercaContatto(query));
     }
-    
-    /*
-    @FXML
-    public void handleAnnulla(ActionEvent e){   //da eliminare
-        e.consume();
-    }
-    */
     
     /**
      * @brief Gestisce il salvataggio della rubrica
      * @param e
      */
     @FXML
-    public void handleSalvataggio(ActionEvent e) {
+    public void handleSalvataggio() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Esporta Contatti");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        File selectedFile = fileChooser.showSaveDialog(null);
-
-        if (selectedFile != null) {
-            Rubrica rubrica = new Rubrica();
+        fileChooser.setTitle("Salva Rubrica");
+        fileChooser.getExtensionFilters().add(
+            new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        
+        File file = fileChooser.showSaveDialog(contattoTable.getScene().getWindow());
+        if (file != null) {
             try {
-                rubrica.salvaFile(selectedFile.getAbsolutePath());
-            } catch (IOException ex) {
-                System.err.println("Errori nel salvataggio del file!");
+                rubrica.salvaFile(file.getAbsolutePath());
+                showInfo("Successo", "Rubrica salvata correttamente");
+            } catch (IOException e) {
+                showError("Errore", "Errore durante il salvataggio del file: " + e.getMessage());
+                Logger.getLogger(RubricaController.class.getName())
+                      .log(Level.SEVERE, "Errore salvataggio file", e);
             }
-            System.out.println("Contatti esportati correttamente.");
         }
     }
 
@@ -217,20 +252,74 @@ public class RubricaController implements Initializable{
      * @param e
      */
     @FXML
-    public void handleCaricamento(ActionEvent e) {
+    public void handleCaricamento() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Importa contatti");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        File file = fileChooser.showOpenDialog(null);
-
+        fileChooser.setTitle("Carica Rubrica");
+        fileChooser.getExtensionFilters().add(
+            new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        
+        File file = fileChooser.showOpenDialog(contattoTable.getScene().getWindow());
         if (file != null) {
-            Rubrica rubricaImport = new Rubrica();
             try {
-                rubricaImport.caricaFile(file.getAbsolutePath());
-            } catch (IOException ex) {
-                System.err.println("Errore nel caricamento del file.");
+                rubrica.caricaFile(file.getAbsolutePath());
+                aggiornaTabella();
+                showInfo("Successo", "Rubrica caricata correttamente");
+            } catch (IOException e) {
+                showError("Errore", "Errore durante il caricamento del file: " + e.getMessage());
+                Logger.getLogger(RubricaController.class.getName())
+                      .log(Level.SEVERE, "Errore caricamento file", e);
             }
-            contattoTable.refresh();
         }
+    }
+    
+    private void aggiornaTabella() {
+        contacts.setAll(rubrica.getContatti());
+    }
+    
+    private boolean validateInputs() {
+        return !nameField.getText().trim().isEmpty() || 
+               !surnameField.getText().trim().isEmpty();
+    }
+    
+    private void clearFields() {
+        nameField.clear();
+        surnameField.clear();
+        num1Field.clear();
+        num2Field.clear();
+        num3Field.clear();
+        mail1Field.clear();
+        mail2Field.clear();
+        mail3Field.clear();
+    }
+    
+    private void popolaCampiContatto(Contatto c) {
+        nameField.setText(c.getNome());
+        surnameField.setText(c.getCognome());
+        
+        List<NumeroTel> numeri = c.getNumeriTel();
+        num1Field.setText(!numeri.isEmpty() ? numeri.get(0).toString() : "");
+        num2Field.setText(numeri.size() > 1 ? numeri.get(1).toString() : "");
+        num3Field.setText(numeri.size() > 2 ? numeri.get(2).toString() : "");
+        
+        List<Email> emails = c.getIndirizziEmail();
+        mail1Field.setText(!emails.isEmpty() ? emails.get(0).toString() : "");
+        mail2Field.setText(emails.size() > 1 ? emails.get(1).toString() : "");
+        mail3Field.setText(emails.size() > 2 ? emails.get(2).toString() : "");
+    }
+    
+    private void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    
+    private void showInfo(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
