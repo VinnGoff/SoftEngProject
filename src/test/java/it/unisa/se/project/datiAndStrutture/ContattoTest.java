@@ -2,6 +2,9 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * @file ContattoTest.java
+ * @brief test per il Contatto.java
+ * @package it.unisa.se.project.datiAndStrutture
  */
 package it.unisa.se.project.datiAndStrutture;
 
@@ -16,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author vgoff
+ * @brief class ContattoTest per testare il contatto
  */
 public class ContattoTest {
     
@@ -39,7 +43,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of getNome method, of class Contatto.
+     * @test testGetNome per getNome di Contatto.
      */
     @Test
     public void testGetNome() {
@@ -53,7 +57,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of getCognome method, of class Contatto.
+     * @test testGetCognome per getCognome di Contatto.
      */
     @Test
     public void testGetCognome() {
@@ -67,7 +71,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of setNome method, of class Contatto.
+     * @test TestSetNome per setNome di Contatto.
      */
     @Test
     public void testSetNome() {
@@ -80,7 +84,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of setCognome method, of class Contatto.
+     * @test testSetCognome per setCognome di Contatto.
      */
     @Test
     public void testSetCognome() {
@@ -93,7 +97,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of getNumeriTel method, of class Contatto.
+     * @test testGetNumeriTel per getNumeriTel di Contatto.
      */
     @Test
     public void testGetNumeriTel() {
@@ -107,7 +111,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of getIndirizziEmail method, of class Contatto.
+     * @test testGetIndirizziEmail per getIndirizziEmail di Contatto.
      */
     @Test
     public void testGetIndirizziEmail() {
@@ -121,7 +125,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of toString method, of class Contatto.
+     * @test testToString per toString di Contatto.
      */
     @Test
     public void testToString() {
@@ -135,7 +139,7 @@ public class ContattoTest {
     }
 
     /**
-     * Test of compareTo method, of class Contatto.
+     * @test testCompareTo per compareTo di Contatto.
      */
     @Test
     public void testCompareTo() {

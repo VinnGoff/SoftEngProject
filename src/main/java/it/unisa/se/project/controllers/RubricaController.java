@@ -1,7 +1,7 @@
 /**
  * @file RubricaController.java
  * @brief Controller principale dell'applicazione
- * 
+ * @package it.unisa.se.project.controllers
  * Gestisce l'interazione tra il modello, Rubrica, e la vista, RubricaView
  */
 package it.unisa.se.project.controllers;
@@ -36,6 +36,9 @@ import javafx.stage.FileChooser;
 /**
  *
  * @author firy
+ * @brief class RubricaController con gli handle degli eventi
+ * @implements Initializable per gestire controller
+ * @section
  */
  
 public class RubricaController implements Initializable{
@@ -92,6 +95,10 @@ public class RubricaController implements Initializable{
     private TableColumn<Contatto, String> mail2Clm;
     @FXML
     private TableColumn<Contatto, String> mail3Clm;
+    /**
+     * @private contacts come lista osservabile della collezione
+     * @private rubrica come nuova rubrica
+     */
     
     private final ObservableList<Contatto> contacts = FXCollections.observableArrayList();
     private final Rubrica rubrica = new Rubrica();    
@@ -107,7 +114,10 @@ public class RubricaController implements Initializable{
         setupTableSelection();
         contattoTable.setItems(contacts);
     }
-    
+    /**
+     * @subsection
+     * @brief setupTableColumns per collegare gli inserimeri field a tabella
+     */           
     private void setupTableColumns() {
         nameClm.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
         surnameClm.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCognome()));
@@ -143,6 +153,10 @@ public class RubricaController implements Initializable{
         });
     }
     
+     /**
+     * @subsection
+     * @brief setupTableSelection permette di selezionare singola riga di contatto
+     */           
     private void setupTableSelection() {
         contattoTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         contattoTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -154,6 +168,7 @@ public class RubricaController implements Initializable{
     
     /**
      * @brief Gestisce l'aggiunta di un nuovo contatto
+     * @return void
      */
     @FXML
     public void handleAggiungiContatto() {
@@ -271,16 +286,28 @@ public class RubricaController implements Initializable{
             }
         }
     }
-    
+    /**
+     * @subsection
+     * @brief aggiornaTabella
+     * @post contacts settato con i dati del contatto
+     */            
     private void aggiornaTabella() {
         contacts.setAll(rubrica.getContatti());
     }
-    
+    /**
+     * @subsection
+     * @brief validateInputs
+     * @return nameField o surnameField non vuoti restituisce true
+     */           
     private boolean validateInputs() {
         return !nameField.getText().trim().isEmpty() || 
                !surnameField.getText().trim().isEmpty();
     }
-    
+    /**
+     * @subsection
+     * @brief svuotaCampi per ogni field di testo del contatto
+     * @post field di contatto vuoti
+     */            
     private void svuotaCampi() {
         nameField.clear();
         surnameField.clear();
@@ -291,7 +318,11 @@ public class RubricaController implements Initializable{
         mail2Field.clear();
         mail3Field.clear();
     }
-    
+    /**
+     * @subsection
+     * @brief popolaCampiContatto per settare i field a valore o nulli
+     * @param c contatto 
+     */            
     private void popolaCampiContatto(Contatto c) {
         nameField.setText(c.getNome());
         surnameField.setText(c.getCognome());
@@ -306,7 +337,12 @@ public class RubricaController implements Initializable{
         mail2Field.setText(emails.size() > 1 ? emails.get(1).toString() : "");
         mail3Field.setText(emails.size() > 2 ? emails.get(2).toString() : "");
     }
-    
+    /**
+     * @subsection
+     * @brief mostraErrore per caso di alert
+     * @param title stringa
+     * @param message stringa
+     */        
     private void mostraErrore(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -314,7 +350,12 @@ public class RubricaController implements Initializable{
         alert.setContentText(message);
         alert.showAndWait();
     }
-    
+    /**
+     * @subsection
+     * @brief mostraInfo per messaggio alert
+     * @param title stringa
+     * @param message stringa
+     */    
     private void mostraInfo(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
