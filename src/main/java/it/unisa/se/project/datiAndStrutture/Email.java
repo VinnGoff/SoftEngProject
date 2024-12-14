@@ -6,10 +6,6 @@
  */
 package it.unisa.se.project.datiAndStrutture;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-
 public class Email {
     private String indirizzo;
 
