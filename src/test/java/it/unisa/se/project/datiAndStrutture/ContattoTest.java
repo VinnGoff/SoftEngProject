@@ -45,6 +45,7 @@ public class ContattoTest {
     
     @Test
     public void testCostruttore() {
+        this.setUp();
         assertNotNull(contatto1);
         assertEquals("Mario", contatto1.getNome());
         assertEquals("Rossi", contatto1.getCognome());
@@ -88,7 +89,7 @@ public class ContattoTest {
         String expected = "Nome: Mario\nCognome: Rossi\nNumeri di telefono: [123456789, 987654321, 555555555]\nIndirizzi e-mail: [email1@example.com, email2@example.com, email3@example.com]";
         assertEquals(expected, contatto1.toString());
     }
-
+    
     @Test
     public void testCompareToSameNameAndSurname() {
         this.setUp();
