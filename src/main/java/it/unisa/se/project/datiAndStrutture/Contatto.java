@@ -10,10 +10,16 @@
  * @invariant nome != null && cognome != null
  */
 package it.unisa.se.project.datiAndStrutture;
-
+/**
+ * @name imports of contatto.java
+ * @{
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ArrayList;
+ /**
+ * @}
+ */
 
 /**
  *
@@ -40,6 +46,8 @@ public class Contatto implements Comparable<Contatto>{
     public static final int EMAIL_MAX = 3;
     
     /**
+     * @name Contatto()
+     * @{
      * @brief Costruisce un nuovo contatto
      * @param nome Nome del contatto (può essere vuoto se cognome non lo è)
      * @param cognome Cognome del contatto (può essere vuoto se nome non lo è)
@@ -52,6 +60,7 @@ public class Contatto implements Comparable<Contatto>{
      * @pre nome != null && cognome != null
      * @post getNumeriTel().size() <= TELEFONI_MAX
      * @post getIndirizziEmail().size() <= EMAIL_MAX
+     *
      */
     public Contatto(String nome, String cognome, NumeroTel num1, NumeroTel num2, NumeroTel num3, Email mail1, Email mail2, Email mail3){
         this.nome = nome;
@@ -67,24 +76,37 @@ public class Contatto implements Comparable<Contatto>{
         indirizziEmail.add(mail2);
         indirizziEmail.add(mail3);
     }
-    
     /**
+     * @}
+     */   
+    /**
+     * @nome getNome()
+     * @{
      * @brief Restituisce il nome del contatto
      * @return Il nome del contatto
      */
     public String getNome() {
         return nome;
     }
-    
     /**
+     * @}
+     */
+    /**
+     * @name getCognome()
+     * @{
      * @brief Restituisce il cognome del contatto
      * @return Il cognome del contatto
      */
     public String getCognome() {
         return cognome;
     }
+    /**
+     * @}
+     */
     
     /**
+     * @name setNome
+     * @{
      * @brief Imposta il nome del contatto
      * @param nome Nuovo nome
      * @throws IllegalArgumentException se il nuovo nome è vuoto e il cognome è vuoto
@@ -92,8 +114,12 @@ public class Contatto implements Comparable<Contatto>{
     public void setNome(String nome) {
         this.nome=nome;
     }
-    
     /**
+     * @}
+     */
+    /**
+     * @name setCognome
+     * @{
      * @brief Imposta il cognome del contatto
      * @param cognome Nuovo cognome
      * @throws IllegalArgumentException se il nuovo cognome è vuoto e il nome è vuoto
@@ -101,8 +127,12 @@ public class Contatto implements Comparable<Contatto>{
     public void setCognome(String cognome) {
         this.cognome=cognome;
     }
-    
     /**
+     * @}
+     */
+    /**
+     * @name getNumeriTel()
+     * @{
      * @brief Restituisce la lista dei numeri di telefono
      * @return Lista dei numeri di telefono
      * @post result.size() <= TELEFONI_MAX
@@ -110,8 +140,12 @@ public class Contatto implements Comparable<Contatto>{
     public ArrayList<NumeroTel> getNumeriTel() {
         return new ArrayList<>(numeriTel);
     }
-    
     /**
+     * @}
+     */   
+    /**
+     * @name getIndirizziEmail()
+     * @{
      * @brief Restituisce la lista degli indirizzi email
      * @return Lista degli indirizzi email
      * @post result.size() <= EMAIL_MAX
@@ -119,8 +153,12 @@ public class Contatto implements Comparable<Contatto>{
     public ArrayList<Email> getIndirizziEmail() {
         return new ArrayList<>(indirizziEmail);
     }
-    
     /**
+     * @}
+     */    
+    /**
+     * @name toString()
+     * @{
      * @brief Restituisce una stampa completa con le informazioni del contatto
      * @return  Stringa con nome, cognome, numeri di telefono e indirizzi email
      */
@@ -128,8 +166,12 @@ public class Contatto implements Comparable<Contatto>{
     public String toString() {
         return ("Nome: " + nome + "\nCognome: " + cognome + "\nNumeri di telefono: " + numeriTel.toString() + "\nIndirizzi e-mail: " + indirizziEmail.toString());
     }
-    
     /**
+     * @}
+     */    
+    /**
+     * @name compareTo()
+     * @{
      * @brief Confronta due contatti per l'ordinamento
      * @param c Il contatto da confrontare
      * @return negativo se this < c, 0 se uguali, positivo se this > other
@@ -146,4 +188,7 @@ public class Contatto implements Comparable<Contatto>{
         // Se i cognomi sono uguali, confronta per nome
         return this.nome.compareToIgnoreCase(c.nome);
     }
+    /**
+     * @}
+     */
 }
