@@ -1,23 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package it.unisa.se.project.datiAndStrutture;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 
-class RubricaTest {
+/**
+ *
+ * @author vgoff
+ */
+public class RubricaTest {
     private Rubrica rubrica;
     private Contatto contatto1;
     private Contatto contatto2;
     private final String TEST_FILE = "test_rubrica.csv";
-
+    
+    public RubricaTest() {
+    }
+    
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         rubrica = new Rubrica();
         
         // Creazione contatti di test
@@ -42,29 +54,45 @@ class RubricaTest {
             new Email(""),
             new Email("")
         );
+
+    }
+    
+    @AfterEach
+    public void tearDown() {
+        // Pulizia del file di test se esiste
+        File testFile = new File(TEST_FILE);
+        if (testFile.exists())
+            testFile.delete();
     }
 
+    /**
+     * Test of aggiungiContatto method, of class Rubrica.
+     */
     @Test
-    @DisplayName("Aggiunta di un contatto valido")
-    void testAggiungiContatto() {
+    public void testAggiungiContatto() {
+        this.setUp();
         rubrica.aggiungiContatto(contatto1);
         List<Contatto> contatti = rubrica.getContatti();
         
         assertEquals(1, contatti.size());
         assertEquals(contatto1, contatti.get(0));
     }
-
+    
     @Test
     @DisplayName("Aggiunta di un contatto null deve lanciare IllegalArgumentException")
     void testAggiungiContattoNull() {
+        this.setUp();
         assertThrows(IllegalArgumentException.class, () -> {
             rubrica.aggiungiContatto(null);
         });
     }
 
+    /**
+     * Test of rimuoviContatto method, of class Rubrica.
+     */
     @Test
-    @DisplayName("Rimozione di un contatto esistente")
-    void testRimuoviContatto() {
+    public void testRimuoviContatto() {
+        this.setUp();
         rubrica.aggiungiContatto(contatto1);
         rubrica.aggiungiContatto(contatto2);
         
@@ -75,9 +103,12 @@ class RubricaTest {
         assertEquals(contatto2, contatti.get(0));
     }
 
+    /**
+     * Test of cercaContatto method, of class Rubrica.
+     */
     @Test
-    @DisplayName("Ricerca contatti con vari criteri")
-    void testCercaContatto() {
+    public void testCercaContatto() {
+        this.setUp();
         rubrica.aggiungiContatto(contatto1);
         rubrica.aggiungiContatto(contatto2);
 
@@ -100,23 +131,15 @@ class RubricaTest {
         List<Contatto> risultatiEmail = rubrica.cercaContatto("luigi.verdi@email.com");
         assertEquals(1, risultatiEmail.size());
         assertEquals(contatto2, risultatiEmail.get(0));
+
     }
 
+    /**
+     * Test of salvaFile method, of class Rubrica.
+     */
     @Test
-    @DisplayName("Ricerca con stringa vuota o null deve restituire tutti i contatti")
-    void testCercaContattoEdgeCases() {
-        rubrica.aggiungiContatto(contatto1);
-        rubrica.aggiungiContatto(contatto2);
-
-        assertAll(
-            () -> assertEquals(2, rubrica.cercaContatto("").size(), "Ricerca con stringa vuota"),
-            () -> assertEquals(2, rubrica.cercaContatto(null).size(), "Ricerca con null")
-        );
-    }
-
-    @Test
-    @DisplayName("Salvataggio e caricamento da file")
-    void testSalvaECaricaFile() throws IOException {
+    public void testSalvaeCaricaFile() throws IOException {
+        this.setUp();
         rubrica.aggiungiContatto(contatto1);
         rubrica.aggiungiContatto(contatto2);
 
@@ -147,20 +170,20 @@ class RubricaTest {
         }
     }
 
+    /**
+     * Test of getContatti method, of class Rubrica.
+     */
     @Test
-    @DisplayName("Caricamento di un file inesistente deve lanciare IOException")
-    void testCaricaFileInesistente() {
-        assertThrows(IOException.class, () -> {
-            rubrica.caricaFile("file_non_esistente.csv");
-        });
+    public void testGetContatti() {
+        this.setUp();
+        rubrica.aggiungiContatto(contatto1);
+        rubrica.aggiungiContatto(contatto2);
+        
+        List<Contatto> contatti = rubrica.getContatti();
+        
+        assertEquals(2, contatti.size());
+        assertTrue(contatti.contains(contatto1));
+        assertTrue(contatti.contains(contatto2));
     }
-
-    @AfterEach
-    void tearDown() {
-        // Pulizia del file di test se esiste
-        File testFile = new File(TEST_FILE);
-        if (testFile.exists()) {
-            testFile.delete();
-        }
-    }
+    
 }

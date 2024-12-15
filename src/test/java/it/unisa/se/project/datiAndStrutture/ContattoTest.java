@@ -45,6 +45,7 @@ public class ContattoTest {
     
     @Test
     public void testCostruttore() {
+        this.setUp();
         assertNotNull(contatto1);
         assertEquals("Mario", contatto1.getNome());
         assertEquals("Rossi", contatto1.getCognome());

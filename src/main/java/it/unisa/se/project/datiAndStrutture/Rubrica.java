@@ -81,14 +81,6 @@ public class Rubrica {
     }
 
     /**
-     * @brief Ordina i contatti alfabeticamente
-     * @return Lista ordinata dei contatti
-     */
-    public List<Contatto> ordinaContatti() {
-        return Collections.emptyList();//potrebbe non servire più perchè la tableview lo fa in automatico
-    }
-
-    /**
      * @brief Salva la rubrica su file
      * @param percorso Percorso del file
      * @throws IOException in caso di errori di I/O
