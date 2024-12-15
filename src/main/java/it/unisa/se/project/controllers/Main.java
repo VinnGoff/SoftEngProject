@@ -4,21 +4,27 @@
  * @package it.unisa.se.project.datiAndStrutture
  */
 package it.unisa.se.project.controllers;
-
+/**
+ * @name imports of main
+ * @{
+ */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+ /**
+ * @}
+ */
 /**
- *
  * @author vgoff
  * @brief classe Main
  * @extends Application
  */
 public class Main extends Application{
     /**
+     * @name start()
+     * @{
      * @brief load resource as parent root + set scene
      * @throws Exception
      */
@@ -31,6 +37,9 @@ public class Main extends Application{
         stage.setScene(scene);
         stage.show();
     }
+    /**
+    * @}
+    */
     /**
      * @param args the command line arguments
      */
