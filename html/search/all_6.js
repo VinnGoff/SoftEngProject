@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main_0',['Main',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Main.html',1,'it::unisa::se::project::datiAndStrutture']]],
-  ['main_1',['main',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Main.html#a86c6564d31d67e12e37dc2cb665c079b',1,'it::unisa::se::project::datiAndStrutture::Main']]]
+  ['numerotel_0',['NumeroTel',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1NumeroTel.html',1,'it.unisa.se.project.datiAndStrutture.NumeroTel'],['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1NumeroTel.html#afe875371955cb41ab9fb924f17daa090',1,'it.unisa.se.project.datiAndStrutture.NumeroTel.NumeroTel()']]],
+  ['numerotel_2ejava_1',['NumeroTel.java',['../NumeroTel_8java.html',1,'']]],
+  ['numeroteltest_2',['NumeroTelTest',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1NumeroTelTest.html',1,'it::unisa::se::project::datiAndStrutture']]]
 ];

@@ -32,7 +32,6 @@ public class RubricaTest {
     public void setUp() {
         rubrica = new Rubrica();
         
-        // Creazione contatti di test
         contatto1 = new Contatto(
             "Mario", 
             "Rossi",
@@ -59,7 +58,6 @@ public class RubricaTest {
     
     @AfterEach
     public void tearDown() {
-        // Pulizia del file di test se esiste
         File testFile = new File(TEST_FILE);
         if (testFile.exists())
             testFile.delete();
@@ -112,22 +110,18 @@ public class RubricaTest {
         rubrica.aggiungiContatto(contatto1);
         rubrica.aggiungiContatto(contatto2);
 
-        // Test ricerca per nome
         List<Contatto> risultatiNome = rubrica.cercaContatto("Mario");
         assertEquals(1, risultatiNome.size());
         assertEquals(contatto1, risultatiNome.get(0));
 
-        // Test ricerca per cognome
         List<Contatto> risultatiCognome = rubrica.cercaContatto("Verdi");
         assertEquals(1, risultatiCognome.size());
         assertEquals(contatto2, risultatiCognome.get(0));
 
-        // Test ricerca per numero di telefono
         List<Contatto> risultatiTelefono = rubrica.cercaContatto("1234567890");
         assertEquals(1, risultatiTelefono.size());
         assertEquals(contatto1, risultatiTelefono.get(0));
 
-        // Test ricerca per email
         List<Contatto> risultatiEmail = rubrica.cercaContatto("luigi.verdi@email.com");
         assertEquals(1, risultatiEmail.size());
         assertEquals(contatto2, risultatiEmail.get(0));
@@ -143,11 +137,9 @@ public class RubricaTest {
         rubrica.aggiungiContatto(contatto1);
         rubrica.aggiungiContatto(contatto2);
 
-        // Test salvataggio
         rubrica.salvaFile(TEST_FILE);
         assertTrue(new File(TEST_FILE).exists());
 
-        // Creiamo una nuova rubrica e carichiamo il file
         Rubrica nuovaRubrica = new Rubrica();
         nuovaRubrica.caricaFile(TEST_FILE);
 
@@ -156,7 +148,6 @@ public class RubricaTest {
 
         assertEquals(contattiOriginali.size(), contattiCaricati.size());
         
-        // Verifichiamo che i contatti siano stati caricati correttamente
         for (int i = 0; i < contattiOriginali.size(); i++) {
             Contatto originale = contattiOriginali.get(i);
             Contatto caricato = contattiCaricati.get(i);

@@ -29,7 +29,6 @@ public class ContattoTest {
 
     @BeforeEach
     public void setUp() {
-        // Inizializza oggetti per il test
         num1 = new NumeroTel("123456789");
         num2 = new NumeroTel("987654321");
         num3 = new NumeroTel("555555555");
@@ -37,7 +36,6 @@ public class ContattoTest {
         email2 = new Email("email2@example.com");
         email3 = new Email("email3@example.com");
 
-        // Crea contatti
         contatto1 = new Contatto("Mario", "Rossi", num1, num2, num3, email1, email2, email3);
         contatto2 = new Contatto("Giuseppe", "Verdi", num1, num2, num3, email1, email2, email3);
         contatto3 = new Contatto("Mario", "Rossi", num1, num2, num3, email1, email2, email3);
@@ -93,7 +91,6 @@ public class ContattoTest {
     @Test
     public void testCompareToSameNameAndSurname() {
         this.setUp();
-        // Contatto con lo stesso nome e cognome
         int result = contatto1.compareTo(contatto3);
         assertEquals(0, result);
     }
@@ -101,18 +98,16 @@ public class ContattoTest {
     @Test
     public void testCompareToDifferentCognome() {
         this.setUp();
-        // Contatto con un cognome diverso
         int result = contatto1.compareTo(contatto2);
-        assertTrue(result < 0); // "Verdi" viene dopo "Rossi" in ordine alfabetico
+        assertTrue(result < 0);
     }
 
     @Test
     public void testCompareToDifferentNome() {
         this.setUp();
-        // Contatto con lo stesso cognome ma nome diverso
         contatto2.setCognome("Rossi");
         contatto2.setNome("Giuseppe");
         int result = contatto1.compareTo(contatto2);
-        assertTrue(result > 0); // "Giuseppe" viene prima di "Mario" in ordine alfabetico
+        assertTrue(result > 0);
     }
 }

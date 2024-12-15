@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['aggiungicontattoviewcontroller_2ejava_0',['AggiungiContattoViewController.java',['../AggiungiContattoViewController_8java.html',1,'']]]
+  ['contatto_2ejava_0',['Contatto.java',['../Contatto_8java.html',1,'']]]
 ];

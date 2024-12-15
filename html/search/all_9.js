@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['ricercacontatto_0',['ricercaContatto',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Rubrica.html#af7e07647b5e2f3508018ac4f3ee14f1b',1,'it::unisa::se::project::datiAndStrutture::Rubrica']]],
-  ['rimuovicontatto_1',['rimuoviContatto',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Rubrica.html#a28d6125a328c200a7c84dc0fcb694953',1,'it::unisa::se::project::datiAndStrutture::Rubrica']]],
-  ['rimuoviemail_2',['rimuoviEmail',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Contatto.html#af4d18fe1f331d7ec2b6f1d587b3a4e68',1,'it::unisa::se::project::datiAndStrutture::Contatto']]],
-  ['rimuovinumerotel_3',['rimuoviNumeroTel',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Contatto.html#aae08f58e0253017de4dae6e927b8ad65',1,'it::unisa::se::project::datiAndStrutture::Contatto']]],
-  ['rubrica_4',['Rubrica',['../classcom_1_1mycompany_1_1rubricagruppo16_1_1Rubrica.html',1,'com.mycompany.rubricagruppo16.Rubrica'],['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Rubrica.html',1,'it.unisa.se.project.datiAndStrutture.Rubrica']]],
-  ['rubrica_2ejava_5',['Rubrica.java',['../it_2unisa_2se_2project_2datiAndStrutture_2Rubrica_8java.html',1,'']]],
-  ['rubricacontroller_6',['RubricaController',['../classit_1_1unisa_1_1se_1_1project_1_1controllers_1_1RubricaController.html',1,'it::unisa::se::project::controllers']]],
-  ['rubricacontroller_2ejava_7',['RubricaController.java',['../RubricaController_8java.html',1,'']]],
-  ['rubricaviewcontroller_8',['RubricaViewController',['../classit_1_1unisa_1_1se_1_1project_1_1controllers_1_1RubricaViewController.html',1,'it::unisa::se::project::controllers']]],
-  ['rubricaviewcontroller_2ejava_9',['RubricaViewController.java',['../RubricaViewController_8java.html',1,'']]]
+  ['telefoni_5fmax_0',['TELEFONI_MAX',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Contatto.html#a36e0fa7fc293874c548a1924c92151d4',1,'it::unisa::se::project::datiAndStrutture::Contatto']]],
+  ['testaggiungicontatto_1',['testAggiungiContatto',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1RubricaTest.html#ab03c925dda94a92ef0294d93a409479d',1,'it::unisa::se::project::datiAndStrutture::RubricaTest']]],
+  ['testcercacontatto_2',['testCercaContatto',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1RubricaTest.html#aff9a205ba69f8b27d4afa4776d8e02ea',1,'it::unisa::se::project::datiAndStrutture::RubricaTest']]],
+  ['testgetcontatti_3',['testGetContatti',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1RubricaTest.html#a48d42fdca8a04d0f73b2a1f2ee537cb8',1,'it::unisa::se::project::datiAndStrutture::RubricaTest']]],
+  ['testrimuovicontatto_4',['testRimuoviContatto',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1RubricaTest.html#a3a6f864727ed322b8b304844505fc8b3',1,'it::unisa::se::project::datiAndStrutture::RubricaTest']]],
+  ['testsalvaecaricafile_5',['testSalvaeCaricaFile',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1RubricaTest.html#a113e020679de40f7a3a3fd2704b26fa6',1,'it::unisa::se::project::datiAndStrutture::RubricaTest']]],
+  ['testtostring_6',['testToString',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1EmailTest.html#a0237fb18dc41096633ca5bd4db852df0',1,'it.unisa.se.project.datiAndStrutture.EmailTest.testToString()'],['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1NumeroTelTest.html#a102476fc747ebb1bd88eb2ee1421b0f2',1,'it.unisa.se.project.datiAndStrutture.NumeroTelTest.testToString()']]],
+  ['tostring_7',['toString',['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1Email.html#afc728e5611c84b64a6f74e05e9e31522',1,'it.unisa.se.project.datiAndStrutture.Email.toString()'],['../classit_1_1unisa_1_1se_1_1project_1_1datiAndStrutture_1_1NumeroTel.html#a24d82593238545083559c853a0c02fdf',1,'it.unisa.se.project.datiAndStrutture.NumeroTel.toString()']]]
 ];
