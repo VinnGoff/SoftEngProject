@@ -23,14 +23,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-import javafx.stage.Stage;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 
 /**
@@ -204,9 +199,22 @@ public class RubricaController implements Initializable{
     @FXML
     public void handleModificaContatto() {
         Contatto selected = contattoTable.getSelectionModel().getSelectedItem();
-        if (selected != null && validateInputs()) {
+    
+        if (selected == null) {
+            mostraErrore("Errore", "Seleziona un contatto da modificare.");
+            return;
+        }
+    
+        if (nameField.getText().trim().isEmpty() && surnameField.getText().trim().isEmpty()) {
+            mostraErrore("Errore", "Nome e cognome non possono essere entrambi vuoti.");
+            return;
+        }
+    
+        try {
             rubrica.rimuoviContatto(selected);
             handleAggiungiContatto();
+        } catch (IllegalArgumentException e) {
+            mostraErrore("Errore", "Formato non valido per uno dei campi: " + e.getMessage());
         }
     }
 

@@ -3,7 +3,7 @@
  * @brief Main class del progetto che lancia l'applicazione con la sua componente grafica
  * @package it.unisa.se.project.datiAndStrutture
  */
-package it.unisa.se.project.datiAndStrutture;
+package it.unisa.se.project.controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
