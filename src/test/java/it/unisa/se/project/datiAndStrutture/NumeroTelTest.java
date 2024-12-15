@@ -1,24 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package it.unisa.se.project.datiAndStrutture;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-
+/**
+ *
+ * @author vgoff
+ */
 public class NumeroTelTest {
+    private String numero;
+    private NumeroTel num;
+    
+    public NumeroTelTest() {
+    }
+    
+    @BeforeEach
+    public void setUp() {
+        numero="383383838";
+        num=new NumeroTel(numero);
+    }
 
-    @Test
+    /**
+    * Test of Costruttore method, of class Email.
+    */
     void testCostruttore() {
-        String numero = "+393401234567";
-        NumeroTel numeroTel = new NumeroTel(numero);
-        assertNotNull(numeroTel, "L'oggetto NumeroTel dovrebbe essere creato correttamente");
-        assertEquals(numero, numeroTel.toString(), "Il numero memorizzato dovrebbe essere uguale a quello passato al costruttore");
+        this.setUp();
+        assertNotNull(num);
     }
 
+    /**
+     * Test of toString method, of class Email.
+     */
     @Test
-    void testToString() {
-        String numero = "3401234567";
-        NumeroTel numeroTel = new NumeroTel(numero);
-        assertEquals(numero, numeroTel.toString(), "Il metodo toString dovrebbe restituire il numero originale");
+    public void testToString() {
+        this.setUp();
+        assertEquals(numero, num.toString());
     }
-
+    
 }
